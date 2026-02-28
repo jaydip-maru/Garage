@@ -3,7 +3,7 @@ import Logout from "./components/auth/Logout";
 import './Navbar.css'
 import { useAuth } from "./Providers/AuthContext";
 import { useCookies } from "react-cookie";
-import ProfileMenu from "./components/Profilemenu";
+import ProfileMenu from "./components/ProfileMenu";
 import Notification from "./components/Services/Notification";
 
 
