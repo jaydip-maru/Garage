@@ -1,4 +1,4 @@
-import Footer from "../../footer";
+import Footer from "../../Footer";
 import Navbar from "../../Navbar";
 import Hero from "../DashBoard/Hero";
 import { ParallaxProvider } from "react-scroll-parallax";
