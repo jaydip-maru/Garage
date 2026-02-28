@@ -35,9 +35,7 @@ function DashBoard() {
     useEffect(() => {
         const verifyCookie = async () => {
         if(!cookies.token){
-          
           console.log("token is not get");
-
           navigate("/");
         }
         const { data } = await axios.post(

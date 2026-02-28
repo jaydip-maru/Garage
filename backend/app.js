@@ -49,7 +49,7 @@ const { Server } = require("socket.io");
 const Service = require("./Models/Service");
 
 app.use(cors({
-  origin:  true,
+  origin: process.env.VITE_FRONTEND_URL,
   credentials: true
 }));
 
@@ -57,7 +57,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: true,
+    origin: process.env.VITE_FRONTEND_URL,
     methods: ["GET", "POST"],
     credentials: true
   },
