@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import "./profileMenu.css";
+import "./ProfileMenu.css";
 import Logout from "./auth/Logout";
 import { Link } from "react-router-dom";
 import MyProfile from "./auth/MyProfile";
