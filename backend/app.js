@@ -251,6 +251,16 @@ try{
 }
 });
 
+app.post("/logout", (req, res) => {
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    withCredentials: true,
+  });
+
+  res.status(200).json({ message: "Logged out successfully" });
+});
 
 
 app.use((err, req, res, next) => {
