@@ -46,7 +46,7 @@ function DashBoard() {
           const {status} = data;
           
     
-          return status ? (login({ email: data.email,username: data.username,id: data.id,isMec: data.isMec }),localStorage.setItem("token", cookies.token ),setcurrUserIsMec(data.isMec) ): (logout(),removeCookie("token"),localStorage.removeItem("token"));
+          return status ? (login({ email: data.email,username: data.username,id: data.id,isMec: data.isMec }),setcurrUserIsMec(data.isMec) ): (logout(),removeCookie("token"));
     
         }
           verifyCookie();
