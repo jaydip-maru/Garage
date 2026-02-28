@@ -136,7 +136,8 @@ io.on('connection', (socket) => {
 
 app.get("/", async (req, res) => {
   const allGarage = await Garage.find({});
-  res.json(allGarage);
+  
+  res.send("Backend is running successfully 🚀");
 })
 
 app.get("/services/:id", async (req, res) => {
