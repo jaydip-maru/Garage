@@ -26,25 +26,7 @@ function Home() {
     });
   }, []);
 
-  useEffect(() => {
-    const verifyCookie = async () => {
-    if(!cookies.token){
-      navigate("/home");
-    }
-    const { data } = await axios.post(
-      "http://localhost:8080",
-      {},
-      { withCredentials: true }
-      );
-    
-      const {status} = data;
-      
 
-      return status ? (login({ email: data.email,username: data.username,id: data.id,isMec: data.isMec }),localStorage.setItem("token", cookies.token ),setcurrUserIsMec(data.isMec) ): (logout(),removeCookie("token"),localStorage.removeItem("token"));
-
-    }
-      verifyCookie();
-  },[navigate,removeCookie,cookies])
 
   
   

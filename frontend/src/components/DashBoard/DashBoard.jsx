@@ -35,6 +35,9 @@ function DashBoard() {
     useEffect(() => {
         const verifyCookie = async () => {
         if(!cookies.token){
+          
+          console.log("token is not get");
+
           navigate("/");
         }
         const { data } = await axios.post(
@@ -44,7 +47,7 @@ function DashBoard() {
           );
         
           const {status} = data;
-          
+          console.log(status);
     
           return status ? (login({ email: data.email,username: data.username,id: data.id,isMec: data.isMec }),setcurrUserIsMec(data.isMec) ): (logout(),removeCookie("token"));
     

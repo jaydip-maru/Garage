@@ -47,8 +47,9 @@ const cors = require("cors");
 const http = require("http");
 const { Server } = require("socket.io");
 const Service = require("./Models/Service");
+
 app.use(cors({
-  origin:  process.env.VITE_FRONTEND_URL,
+  origin:  true,
   credentials: true
 }));
 
@@ -56,7 +57,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: process.env.VITE_FRONTEND_URL,
+    origin: true,
     methods: ["GET", "POST"],
     credentials: true
   },
@@ -136,6 +137,7 @@ app.get("/", async (req, res) => {
   
   res.send("Backend is running successfully 🚀");
 })
+app.post("/",userVerification);
 
 app.get("/services/:id", async (req, res) => {
   const { id } = req.params;
@@ -149,7 +151,6 @@ app.get("/services/:id", async (req, res) => {
   }
  return res.json(data);
 })
-app.post("/",userVerification);
 
 
 
