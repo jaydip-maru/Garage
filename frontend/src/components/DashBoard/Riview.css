@@ -1,0 +1,42 @@
+.Customer{
+    width: 70%;
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 38px;
+}
+
+.wrapper-riview {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 100px;
+    gap: 30px;
+
+}
+
+.sidebar-riview {
+    position: sticky;
+    top: 80px;
+    height: auto;
+    overflow-y: auto;
+    flex: 1;
+   
+}
+
+.content-riview {
+   
+    flex: 1;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.img-riview{
+    height: 29rem;
+}
+@media (max-width: 700px) {
+    .Customer{
+        width: 100%;
+      
+    }
+}

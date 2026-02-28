@@ -1,0 +1,71 @@
+/* left bottom corner like ChatGPT */
+.profile-container {
+    position: sticky;
+    font-family: sans-serif;
+  }
+  
+  .profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: black;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .profile-btn:hover {
+    background: #525252;
+  }
+  
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  .name {
+    font-size: 14px;
+  }
+  
+  /* dropdown */
+  .profile-menu {
+    position: absolute;
+    left: 0;
+    width: 200px;
+    background: #2a2b32;
+    border-radius: 10px;
+    padding: 8px 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  }
+  
+  .menu-item {
+    padding: 10px 15px;
+    color: white !important;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  
+  .menu-item:hover {
+    background: #3a3b44;
+  }
+  
+  .menu-divider {
+    height: 1px;
+    background: #444;
+    margin: 5px 0;
+  }
+  
+  .logout {
+    text-decoration: none;
+    
+    color: #ff5c5c !important;
+  }
+
+  .menu-item-link{
+    text-decoration: none;
+    color: white;
+  }

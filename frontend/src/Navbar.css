@@ -1,0 +1,12 @@
+.navbar{
+    font-weight: 500;
+    background: rgba(0,0,0,0.5); /* optional overlay */
+}
+
+.navbar-collapse{
+    margin-left: 95px;
+    margin-right: 95px;
+    justify-content: space-between;
+    
+ 
+}

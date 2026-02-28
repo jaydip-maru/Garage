@@ -1,0 +1,149 @@
+.wrapper{
+    max-width:1500px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:40px;
+    padding-right:40px;
+    padding-top:50px;
+    padding-bottom:140px;
+    display:flex;
+    gap:120px;
+    transform:translateY(50px);
+    animation:fadeUp .8s ease forwards;
+  }
+  
+  .sidebar{
+    flex:0 0 40%;
+    position:sticky;
+    top:120px;
+    align-self:flex-start;
+  }
+  
+  .content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+  }
+  
+  .content-Trust{
+    max-width:520px;
+  }
+  
+  .hedding-trust{
+    font-size:54px;
+    line-height:1.05;
+    font-weight:700;
+    color:#000;
+    margin-bottom:30px;
+    letter-spacing:-1px;
+  }
+  
+  .detail-trust{
+    font-size:18px;
+    line-height:1.7;
+    color:#525252;
+    margin-bottom:40px;
+  }
+  
+  .detail-link{
+    display:inline-block;
+    font-size:16px;
+    font-weight:600;
+    text-decoration:none;
+    color:#000;
+    position:relative;
+    padding-bottom:6px;
+  }
+  
+  .detail-link::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:2px;
+    background:#000;
+    transition:0.4s ease;
+  }
+  
+  .detail-link:hover::after{
+    width:100%;
+  }
+  
+  .img-divition{
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+  }
+  
+  .img-trust{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    transition:0.6s ease;
+  }
+  
+  .img-divition:hover .img-trust{
+    transform:scale(1.08);
+  }
+  
+  .overlay-img{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,.8),rgba(0,0,0,.2));
+    display:flex;
+    align-items:flex-end;
+    padding:40px;
+    opacity:0;
+    transition:0.5s ease;
+  }
+  
+  .overlay-img p{
+    color:#fff;
+    font-size:20px;
+    line-height:1.4;
+    max-width:80%;
+  }
+  
+  .img-divition:hover .overlay-img{
+    opacity:1;
+  }
+  
+  @media(max-width:1200px){
+    .wrapper{
+      flex-direction:column;
+      gap:80px;
+    }
+  
+    .sidebar{
+      position:relative;
+      top:0;
+    }
+  
+    .hedding-trust{
+      font-size:42px;
+    }
+  
+    .img-trust{
+      height:320px;
+    }
+  }
+  
+  @media(max-width:768px){
+    .wrapper{
+      padding:80px 20px;
+    }
+  
+    .hedding-trust{
+      font-size:32px;
+    }
+  
+    .detail-trust{
+      font-size:16px;
+    }
+  
+    .img-trust{
+      height:260px;
+    }
+  }

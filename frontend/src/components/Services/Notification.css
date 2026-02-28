@@ -1,0 +1,74 @@
+.nb-wrapper {
+    position: relative;
+  }
+  
+  /* bell */
+  .nb-bell {
+    position: relative;
+    font-size: 22px;
+    cursor: pointer;
+    color: black;
+ 
+  }
+  
+  .nb-badge {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background: red;
+    color: white;
+    font-size: 10px;
+    padding: 3px 6px;
+    border-radius: 50%;
+  }
+  
+  /* panel */
+  .nb-panel {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    width: 300px;
+    background: #0f172a;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    color: white;
+    overflow: hidden;
+    animation: fadeIn 0.2s ease;
+  }
+  
+  .nb-header {
+    padding: 12px;
+    font-weight: bold;
+    border-bottom: 1px solid #333;
+  }
+  
+  .nb-list {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .nb-item {
+    padding: 12px;
+    border-bottom: 1px solid #1e293b;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .nb-item:hover {
+    background: rgba(255,255,255,0.05);
+  }
+  
+  .nb-text {
+    font-size: 14px;
+  }
+  
+  .nb-time {
+    font-size: 11px;
+    opacity: 0.6;
+    margin-top: 4px;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px);}
+    to { opacity: 1; transform: translateY(0);}
+  }

@@ -1,0 +1,85 @@
+/* Page background */
+body {
+    background-color: white;
+    font-family: "Inter", sans-serif;
+  }
+  
+  /* Main container (your existing class) */
+  .container {
+    max-width: 720px;
+    margin: 60px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  }
+  
+  /* Heading */
+  .container h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #222;
+  }
+  
+  /* Labels */
+  .form-label,
+  .container label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 6px;
+  }
+  
+  /* Inputs */
+  .form-control {
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+    transition: 0.2s;
+  }
+  
+  .form-control:focus {
+    border: 1px solid #ff385c;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(255,56,92,0.15);
+  }
+  
+  /* Row spacing */
+  .row {
+    margin-bottom: 15px;
+  }
+  
+  /* Button (your existing btn btn-primary) */
+  .btn-primary {
+    margin-top: 30px;
+    width: 100%;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: black !important;
+    border: none;
+    transition: 0.2s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #e11d48 !important;
+  }
+  
+  /* File input */
+  input[type="file"] {
+    background: white;
+    padding: 12px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
+      margin: 20px;
+      padding: 25px;
+    }
+  
+    .row {
+      flex-direction: column;
+    }
+  }

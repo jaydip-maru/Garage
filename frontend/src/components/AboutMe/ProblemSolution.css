@@ -1,0 +1,60 @@
+.ps-section {
+    padding: 0px 0px 100px 0px;
+    background: white;
+    color: black;
+    text-align: center;
+  }
+  
+  .ps-title {
+    font-size: 32px;
+    margin-bottom: 60px;
+  }
+  
+  .ps-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .ps-card {
+    width: 320px;
+    padding: 30px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ps-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+  
+  .ps-card h3 {
+    margin-top: 15px;
+    font-size: 22px;
+  }
+  
+  .ps-card ul {
+    text-align: left;
+    margin-top: 20px;
+  }
+  
+  .ps-card li {
+    margin-bottom: 10px;
+  }
+  
+  .problem {
+    border: 1px solid #ff4d4d;
+  }
+  
+  .solution {
+    border: 1px solid #22c55e;
+  }
+  
+  .icon {
+    margin-bottom: 10px;
+  }

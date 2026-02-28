@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+
+  background-color: white;
+
+}
+
+.main {
+  padding: 40px;
+}
+
+.Hero {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  height: 92vh;
+  border-radius: 24px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.08);
+}
+
+.img-signup {
+  flex: 1;
+  position: relative;
+}
+
+.img-sign {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.overlay-sign {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(17,24,39,0.6),
+    rgba(17,24,39,0.2)
+  );
+}
+
+
+.form {
+  flex: 1;
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.hadding {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 35px;
+  color: #111827;
+}
+
+
+.form-lable {
+  font-size: 20px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+
+.form-input {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-bottom: 2px solid #e5e7eb;
+  background: transparent;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-bottom: 2px solid #6366f1;
+}
+
+
+
+
+
+.button {
+  margin-top: 25px;
+  width: 100%;
+  padding: 14px;
+  background: ba;
+  border: none;
+  border-radius: 14px;
+  font-size: 23px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(99,102,241,0.3);
+}
+
+
+.para-log {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #4f46e5;
+}
+
+.para-log a {
+  color: #6366f1;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+
+@media (max-width: 900px) {
+  .Hero {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .img-signup {
+    height: 280px;
+  }
+
+  .form {
+    padding: 40px;
+  }
+}
