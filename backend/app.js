@@ -35,7 +35,7 @@ const { createSecretToken } = require("./secretToken.js");
 const bcrypt = require("bcryptjs");
 const {userVerification} = require("./middleware/AuthMiddleware.js")
 const jwt = require("jsonwebtoken");
-
+import cookie from "cookie";
 // const garageRouts = require("./router/garageRouts.js")
 
 const cookieParser = require('cookie-parser');
@@ -273,9 +273,22 @@ app.use((err, req, res, next) => {
 
 io.use((socket, next) => {
   try {
-    const token = socket.handshake.headers.token;
-    const decoded = jwt.verify(token, process.env.TOKEN_KEY);
-    socket.user = decoded.id;
+    const cookies = socket.handshake.headers.cookie;
+
+   if (!cookies) return next(new Error("No cookie found"));
+
+   const parsed = cookie.parse(cookies);
+   const token = parsed.token;
+
+   if (!token) return next(new Error("No token"));
+
+   try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      socket.user = decoded;
+      next();
+   } catch (err) {
+      next(new Error("Invalid token"));
+   }
     next();
   } catch {
     next(new Error("Auth error"));
