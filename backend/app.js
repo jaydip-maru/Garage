@@ -273,7 +273,7 @@ app.use((err, req, res, next) => {
 
 io.use((socket, next) => {
   try {
-    const token = socket.handshake.auth.token;
+    const token = socket.handshake.headers.token;
     const decoded = jwt.verify(token, process.env.TOKEN_KEY);
     socket.user = decoded.id;
     next();

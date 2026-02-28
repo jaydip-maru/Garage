@@ -8,16 +8,12 @@ import WhoBehindAllOfThat from './WhoBehindAllOfThat';
 import Riview from './Review';
 import Contect from './Contect';
 import Navbar from '../../Navbar';
-
-import VehicleSection from './VehicleSection';
-
 import { useState, useEffect } from "react";
 import axios, { all } from "axios";
 
 import { useAuth } from "../../Providers/AuthContext";
 import { useCookies } from "react-cookie";
 import {  useNavigate } from "react-router-dom";
-import MyProfile from '../auth/MyProfile';
 import Footer from '../../Footer';
 import MecGetService from '../Services/MecGetService';
 
