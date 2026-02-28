@@ -48,7 +48,9 @@ const http = require("http");
 const { Server } = require("socket.io");
 const Service = require("./Models/Service");
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: ["http://localhost:5173",
+    process.env.VITE_FRONTEND_URL
+  ],
   credentials: true
 }));
 
