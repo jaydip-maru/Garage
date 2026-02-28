@@ -137,7 +137,7 @@ app.get("/", async (req, res) => {
   
   res.send("Backend is running successfully 🚀");
 })
-app.post("/",userVerification);
+app.post("/verify",userVerification);
 
 app.get("/services/:id", async (req, res) => {
   const { id } = req.params;
@@ -235,11 +235,14 @@ try{
   }
 
   const token = createSecretToken({id: user._id,isMechanic: user.isMechanic});
+  
   res.cookie("token", token, {
-    withCredentials: true,
-    httpOnly: false,
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
     maxAge: 60 * 60 * 60 * 24,
-  });
+    withCredentials: true,
+ });
 
   res.status(201).json({ message: "User logged in successfully", success: true,username: user.username, id: user._id, isMec: user.isMechanic});
   next()
