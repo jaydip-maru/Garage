@@ -1,20 +1,28 @@
 import { ToastContainer, toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Providers/AuthContext";
-import { useCookies } from "react-cookie";
+import axios from "axios";
+
 import "./Logout.css"
 
 
 function Logout() {
-  const [cookies, removeCookie] = useCookies(["token"]);
-
   const navigate = useNavigate();
     const {logout} = useAuth();
 
-  const Logout = () => {
-    removeCookie("token");
-    navigate("/signup");
+    
+
+  const Logout = async () => {
+    await axios.post(
+      `${import.meta.env.VITE_API_URL}/logout`,
+      {},
+      { withCredentials: true }
+   );
     logout();
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+    
   };
  
     return ( <>
