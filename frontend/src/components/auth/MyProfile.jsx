@@ -27,7 +27,7 @@ function MyProfile() {
       }, []);
 
       useEffect(() => {
-         axios.get(`${import.meta.env.VITE_API_URL}/services/${user.id}`).then((res) => {
+         axios.get(`${import.meta.env.VITE_API_URL}/services/${user.id}`, { withCredentials: true }).then((res) => {
           setServices(res.data);
         });
       })

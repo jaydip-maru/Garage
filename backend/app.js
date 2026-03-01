@@ -69,24 +69,26 @@ const onlineUsers = {};
 
 
 io.on('connection', (socket) => {
-
-  const userId = socket.user.id;
-  const isMechanic = socket.user.isMechanic;
-
+  console.log("Connected:", socket.user.id.id);
+  const userId = socket.user.id.id;
+  const isMechanic = socket.user.id.isMechanic;
+  console.log(isMechanic)
   if (isMechanic) {
     onlineMechanics[userId] = socket.id;
   } else {
-    onlineUsers[userId] = socket.id;
+    onlineUsers[userId] = socket.user.id.id;
   }
 
 
   socket.on("request-mechanic", async (data) => {
+
     const service = await Service.create({
       userId,
       problem: data.problem
     });
 
     Object.values(onlineMechanics).forEach((mechanicSocket) => {
+      console.log(mechanicSocket);
       io.to(mechanicSocket).emit("new-service", {
         serviceId: service._id,
         problem: service.problem,
@@ -273,11 +275,17 @@ app.use((err, req, res, next) => {
 
 io.use((socket, next) => {
   try {
-    const token = socket.handshake.auth.token;
+    const cookies = socket.handshake.headers.cookie;
+    const parsed = require("cookie").parse(cookies);
+    const token = parsed.token;
+
+    if (!token) return next(new Error("No token"));
+
     const decoded = jwt.verify(token, process.env.TOKEN_KEY);
-    socket.user = decoded.id;
+    socket.user = decoded;
+
     next();
-  } catch {
+  } catch (err) {
     next(new Error("Auth error"));
   }
 });

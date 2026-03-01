@@ -26,7 +26,6 @@ function DashBoard() {
     const {user,login,logout} = useAuth();
     const navigate = useNavigate();
     const [cookies, removeCookie] = useCookies(["token"]);
-    const [currUserIsMec, setcurrUserIsMec] = useState(false);
 
     useEffect(() => {
         const verifyCookie = async () => {
@@ -43,7 +42,7 @@ function DashBoard() {
           const {status} = data;
           console.log(status);
     
-          return status ? (login({ email: data.email,username: data.username,id: data.id,isMec: data.isMec }),setcurrUserIsMec(data.isMec),localStorage.setItem(token,cookies.token ) ): (logout(),localStorage.removeItem(token));
+          return status ? (login({ email: data.email,username: data.username,id: data.id,isMec: data.isMec }),setcurrUserIsMec(data.isMec),localStorage.setItem("token",cookies.token ) ): (logout(),localStorage.removeItem(token));
     
         }
           verifyCookie();
@@ -54,8 +53,8 @@ function DashBoard() {
     <Navbar  color="white"/>
 <ParallaxProvider>
     <div className='DashBoard'>
-{currUserIsMec && <MecGetService />}
 
+<MecGetService />
 
         <Hero
             img="https://previews.123rf.com/images/uatp2/uatp21310/uatp2131000308/22754977-image-of-a-repair-garage.jpg"

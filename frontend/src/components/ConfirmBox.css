@@ -17,6 +17,8 @@
 
   .confirm-box {
     background: #ffffff;
+    z-index: 100;
+
     padding: 30px;
     width: 350px;
     border-radius: 12px;
