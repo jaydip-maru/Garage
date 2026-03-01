@@ -68,3 +68,12 @@
     }
 
 }
+.footer-link{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-link:hover{
+    text-decoration: none;
+    color: rgb(100, 95, 95);
+}

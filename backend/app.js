@@ -134,14 +134,14 @@ io.on('connection', (socket) => {
 
 
 
-app.get("/", async (req, res) => {
+app.get("/", warpAsync(async (req, res) => {
   const allGarage = await Garage.find({});
   
   res.send("Backend is running successfully 🚀");
-})
+}))
 app.post("/verify",userVerification);
 
-app.get("/services/:id", async (req, res) => {
+app.get("/services/:id",warpAsync( async (req, res) => {
   const { id } = req.params;
   const user = await User.findById(id);
   let data = [];
@@ -152,7 +152,7 @@ app.get("/services/:id", async (req, res) => {
    data = await Service.find({userId: id}).sort({ createdAt: -1 })
   }
  return res.json(data);
-})
+}))
 
 
 
@@ -175,14 +175,14 @@ app.post("/garage", upload.single('url'), warpAsync(async (req, res) => {
   return res.json({ message: "Image added successfully",success: true });
 }))
 
-app.get("/garage/:id", async (req, res) => {
+app.get("/garage/:id", warpAsync(async (req, res) => {
   const { id } = req.params;
 
   const garage = await Garage.findOne({ _id: id });
   res.json(garage);
-})
+}))
 
-app.delete("/garage/:id", async (req, res) => {
+app.delete("/garage/:id", warpAsync(async (req, res) => {
   const { id } = req.params;
 
   const deletedGarage = await Garage.findByIdAndDelete({ _id: id });
@@ -190,9 +190,9 @@ app.delete("/garage/:id", async (req, res) => {
   await user.updateOne({isMechanic: false});
   
   return res.json({message: "listing was deleted"});
-})
+}))
 
-app.post("/signup", async (req, res, next) => {
+app.post("/signup", warpAsync(async (req, res, next) => {
   const { email, username, password } = req.body;
 
   const existUser = await User.findOne({ username });
@@ -211,10 +211,10 @@ app.post("/signup", async (req, res, next) => {
   res
     .status(200)
     .json({ message: "User signed in successfully", success: true, user });
-})
+}))
 
 
-app.post("/login", async (req, res, next) => {
+app.post("/login", warpAsync(async (req, res, next) => {
 try{
   const { email, password } = req.body;
 
@@ -251,9 +251,9 @@ try{
 } catch(err) {
   console.log(err);
 }
-});
+}));
 
-app.post("/logout", (req, res) => {
+app.post("/logout",warpAsync( (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
     secure: true,
@@ -262,7 +262,7 @@ app.post("/logout", (req, res) => {
   });
 
   res.status(200).json({ message: "Logged out successfully" });
-});
+}));
 
 
 app.use((err, req, res, next) => {

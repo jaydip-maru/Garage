@@ -19,7 +19,6 @@ function Logout() {
       { withCredentials: true }
    );
     logout();
-    localStorage.removeItem(token)
       setTimeout(() => {
         navigate("/");
       }, 1000);

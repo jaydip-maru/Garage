@@ -1,6 +1,6 @@
 import "./MyProfile.css";
 import { FaUserCircle, FaEnvelope, FaTools, FaHistory } from "react-icons/fa";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect,useCallback} from "react";
 import { useAuth } from "../../Providers/AuthContext";
 import axios, { all } from "axios";
 
@@ -9,7 +9,7 @@ function MyProfile() {
 
 
     const [open, setOpen] = useState(false);
-    const [services, setServices] = useState({});
+    const [services, setServices] = useState([]);
 
       const {user} = useAuth()
     
@@ -26,11 +26,27 @@ function MyProfile() {
         return () => document.removeEventListener("mousedown", handler);
       }, []);
 
-      useEffect( async () => {
-        await axios.get(`${import.meta.env.VITE_API_URL}/services/${user.id}`, { withCredentials: true }).then((res) => {
-          setServices(res.data);
-        });
-      })
+      //this is for services
+      const fetchServices = useCallback(async () => {
+        if (!user?.id) return;
+    
+        try {
+         
+    
+          const { data } = await axios.get(
+            `${import.meta.env.VITE_API_URL}/services/${user.id}`,
+            { withCredentials: true }
+          );
+    
+          setServices(data || []);
+        } catch (err) {
+          console.error(err);
+        } 
+      }, [user]);
+    
+      useEffect(() => {
+        fetchServices();
+      }, [fetchServices]);
 
   return (
     <>
@@ -83,15 +99,17 @@ function MyProfile() {
           <h3>
             <FaHistory /> Past Services
           </h3>
-          {services.map((s) => (
-
-                  <div key={s._id} className="mp-historyCard">
-           Problem: {s.problem} <br />
-           Status: {s.status}
-
-              </div>
-                
-            ))}
+                {services.length === 0 ? (
+        <p>No past services found.</p>
+      ) : (
+        services.map((s) => (
+          <div key={s._id} className="mp-historyCard">
+            Problem: {s.problem} <br />
+            Status: {s.status} <br />
+            Service createdAt: {s.createdAt}
+          </div>
+        ))
+      )}
 
           
         </div>

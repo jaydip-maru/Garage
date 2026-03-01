@@ -3,6 +3,7 @@ import { useState } from "react";
 import jay from "/myPhoto2.png"
 
 
+
 function Contect() {
 
     let [fromData, setFormData] = useState({
@@ -13,6 +14,19 @@ function Contect() {
         AboutYou: "",
         
       });
+
+      let contect = (event) =>{
+        event.preventDefault();
+        
+        console.log("We Get Your Contect")
+        setFormData({
+          FristName: "",
+        LastName: "",
+        Email: "",
+        ContectNo: "",
+        AboutYou: "",
+        })
+      }
 
 
     let handleInputChange = (event) => {
@@ -37,7 +51,7 @@ function Contect() {
             className="contect-img" />
             </div>
             <div className="from-detail">
-                <form action="">
+                <form action="" onSubmit={contect}>
                     <label htmlFor="FristName">FristName</label>
                     <input type="text" name="FristName" placeholder="FristName" onChange={handleInputChange} />
                   <hr className="line" />
@@ -60,7 +74,7 @@ function Contect() {
                     <input type="text" name="AboutYou" placeholder="What Problem You Have"  onChange={handleInputChange}/>
                     <hr className="line" />
 
-                    <button className="Cont-now">Contect Now</button>
+                    <button className="Cont-now" >Contect Now</button>
 
                 </form>
             </div>

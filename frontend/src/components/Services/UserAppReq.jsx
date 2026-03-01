@@ -43,6 +43,8 @@ function UserAppReq() {
       socket.emit("request-mechanic", {
         problem: fromData.problem,
       });
+      hendelSuccess("Request sended to a Mechanics");
+
     };
     
     socket.on("service-confirmed", () => {

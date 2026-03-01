@@ -42,7 +42,7 @@ function DashBoard() {
           const {status} = data;
           console.log(status);
     
-          return status ? (login({ email: data.email,username: data.username,id: data.id,isMec: data.isMec }),setcurrUserIsMec(data.isMec),localStorage.setItem("token",cookies.token ) ): (logout(),localStorage.removeItem(token));
+          return status ? (login({ email: data.email,username: data.username,id: data.id,isMec: data.isMec }) ): (logout());
     
         }
           verifyCookie();
