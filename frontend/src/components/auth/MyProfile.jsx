@@ -9,7 +9,7 @@ function MyProfile() {
 
 
     const [open, setOpen] = useState(false);
-    const [services, setServices] = useState(null);
+    const [services, setServices] = useState({});
 
       const {user} = useAuth()
     
@@ -26,8 +26,8 @@ function MyProfile() {
         return () => document.removeEventListener("mousedown", handler);
       }, []);
 
-      useEffect(() => {
-         axios.get(`${import.meta.env.VITE_API_URL}/services/${user.id}`, { withCredentials: true }).then((res) => {
+      useEffect( async () => {
+        await axios.get(`${import.meta.env.VITE_API_URL}/services/${user.id}`, { withCredentials: true }).then((res) => {
           setServices(res.data);
         });
       })
@@ -51,7 +51,11 @@ function MyProfile() {
           <div>
            { user && <h2 className="mp-name">{user.username}</h2>}
             { user && <p className="mp-username">{user.email}</p>}
-           { (user && user.isMec) ?  <span className="mp-role">Garage Mechanic</span> : <span className="mp-role">User</span> }
+            { user?.isMec ? (
+  <span className="mp-role">Garage Mechanic</span>
+) : (
+  <span className="mp-role">User</span>
+)}
           </div>
         </div>
 
@@ -65,7 +69,11 @@ function MyProfile() {
 
           <div className="mp-row">
             <FaTools />
-           {(user && user.isMec) ? <span>Garage Owner</span> : <span>User</span>}
+            { user?.isMec ? (
+  <span className="mp-role">Garage Mechanic</span>
+) : (
+  <span className="mp-role">User</span>
+)}
           </div>
 
         </div>
