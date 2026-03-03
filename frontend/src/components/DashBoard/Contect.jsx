@@ -52,29 +52,29 @@ function Contect() {
             </div>
             <div className="from-detail">
                 <form action="" onSubmit={contect}>
-                    <label htmlFor="FristName">FristName</label>
-                    <input type="text" name="FristName" placeholder="FristName" onChange={handleInputChange} />
+                    <label htmlFor="FristName">First name</label>
+                    <input type="text" name="FristName" placeholder="First name" onChange={handleInputChange} />
                   <hr className="line" />
 
-                    <label htmlFor="LastName">LastName</label>
-                    <input type="text" name="LastName" placeholder="LastName" onChange={handleInputChange} />
+                    <label htmlFor="LastName">Last name</label>
+                    <input type="text" name="LastName" placeholder="Last name" onChange={handleInputChange} />
                     <hr className="line" />
 
-                    <label htmlFor="Email">Email</label>
-                    <input type="text" name="Email" placeholder="Email" onChange={handleInputChange} />
-                    <hr className="line" />
-
-
-                    <label htmlFor="ContectNum">Contect No</label>
-                    <input type="text" name="ContectNum" placeholder="+91 00"  onChange={handleInputChange}/>
+                    <label htmlFor="Email">E-mail address</label>
+                    <input type="email" name="Email" placeholder="e-mail" onChange={handleInputChange} />
                     <hr className="line" />
 
 
-                    <label htmlFor="AboutYou">Tell Us About You</label>
-                    <input type="text" name="AboutYou" placeholder="What Problem You Have"  onChange={handleInputChange}/>
+                    <label htmlFor="ContectNum">Telephone number</label>
+                    <input type="text" name="ContectNum" placeholder="+91"  onChange={handleInputChange}/>
                     <hr className="line" />
 
-                    <button className="Cont-now" >Contect Now</button>
+
+                    <label htmlFor="AboutYou">Tell us more about your request.</label>
+                    <input type="text" name="AboutYou" placeholder=""  onChange={handleInputChange}/>
+                    <hr className="line" />
+
+                    <button className="Cont-now" >Get free advice</button>
 
                 </form>
             </div>

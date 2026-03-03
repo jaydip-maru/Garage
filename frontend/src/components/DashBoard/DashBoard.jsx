@@ -1,4 +1,3 @@
-import BookApoitNow from './BookApoitNow';
 import Hero from './Hero';
 import { ParallaxProvider } from "react-scroll-parallax";
 import TrustGiver from './TrustGiver';
@@ -9,7 +8,7 @@ import Riview from './Review';
 import Contect from './Contect';
 import Navbar from '../../Navbar';
 import { useState, useEffect } from "react";
-import axios, { all } from "axios";
+import axios from "axios";
 
 import { useAuth } from "../../Providers/AuthContext";
 import { useCookies } from "react-cookie";
@@ -59,7 +58,7 @@ function DashBoard() {
         <Hero
             img="https://previews.123rf.com/images/uatp2/uatp21310/uatp2131000308/22754977-image-of-a-repair-garage.jpg"
 
-          text="We are With You Every second On Your Way."/>
+          text="We are With You Every Second on Your Way."/>
         <div className='Other-section'>
             
             <TrustGiver  />

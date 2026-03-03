@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuth } from "../../Providers/AuthContext";
 
 import Navbar from "../../Navbar";
@@ -44,22 +44,22 @@ function UserAppReq() {
         problem: fromData.problem,
       });
       hendelSuccess("Request sended to a Mechanics");
-
+      setFormData({
+         problem: "",
+    location: ""
+      })
     };
     
     socket.on("service-confirmed", () => {
       // alert("Mechanic accepted!");
       hendelSuccess("Mechanic Accept you request!");
-      SetTimeout(() => {
-        navigate("/");
-      }, 500);
     });
     
 
   
 
     return (  <>
-    <Navbar color="tomato" />
+    <Navbar color="	#9fb6c3" />
     <div>
       <img className="req-img" src="https://storage.googleapis.com/support-forums-api/attachment/message-237576265-6955616305050567035.PNG" alt="" />
     <form className="req-form" action="" onSubmit={requestMechanic}>

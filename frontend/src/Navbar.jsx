@@ -31,13 +31,13 @@ function Navbar({color}) {
           <Link className="nav-link p-2 fs-5" to="/service">Services</Link>
         </li>   
         <li className="nav-item">
-          <Link className="nav-link p-2 fs-5" to="/contect">Contect</Link>
+          <Link className="nav-link p-2 fs-5" to="/contect">Contact</Link>
         </li> 
 
         
        
         <li className="nav-item">
-          <Link className="nav-link p-2 fs-5" to="/aboutme">AboutMe</Link>
+          <Link className="nav-link p-2 fs-5" to="/aboutme">Aboutme</Link>
         </li>
         
 

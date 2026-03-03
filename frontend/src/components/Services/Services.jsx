@@ -12,7 +12,7 @@ import ProblemSolution from "../AboutMe/ProblemSolution";
 function Services() {
   return (
     <>
-    <Navbar color="orange" />
+    <Navbar color="	#f9b49b" />
       <div className="Services">
         <ParallaxProvider>
           <Hero

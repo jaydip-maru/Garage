@@ -8,10 +8,10 @@ function Footer() {
         <div className="other-page">
             <div className="page">
                 <div className="page-in-my">
-             <Link to="/contect" className="footer-link"> <p>contect</p></Link>  
-             <Link to="/aboutme" className="footer-link">  <p>AboutMe</p></Link>  
+             <Link to="/contect" className="footer-link"> <p>Contact</p></Link>  
+             <Link to="/aboutme" className="footer-link">  <p>Aboutme</p></Link>  
              <Link to="/service" className="footer-link">  <p>Service</p></Link>  
-             <Link to="/new" className="footer-link">  <p>AddNew</p></Link>  
+             <Link to="/new" className="footer-link">  <p>Addnew</p></Link>  
                 </div>
                 <div className="page-in-notmy">
                     <p className="footer-link">imprint</p>

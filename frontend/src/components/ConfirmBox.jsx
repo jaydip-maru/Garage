@@ -1,14 +1,14 @@
 import React from "react";
 import "./ConfirmBox.css";
 
-function ConfirmBox({ message, onYes, onNo }) {
+function ConfirmBox({ data, onYes, onNo }) {
   return (
     <div className="overlay3">
       <div className="confirm-box">
         <h4 className="title">New Request</h4>
-        <p className="Problem">Problem : {message}</p>
-        <p className="location">Location : {message}</p>
-        <p className="Time">Req-Time : {message}</p>
+        <p className="Problem">Problem : {data.problem}</p>
+        <p className="location">Location : {data.location}</p>
+        <p className="Time">Req-Time : {data.createdAt}</p>
 
 
         <div className="button-group">

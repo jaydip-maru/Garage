@@ -68,7 +68,7 @@ const onlineMechanics = {};
 const onlineUsers = {};
 
 
-io.on('connection', (socket) => {
+io.on('connection', warpAsync((socket) => {
   console.log("Connected:", socket.user.id.id);
   const userId = socket.user.id.id;
   const isMechanic = socket.user.id.isMechanic;
@@ -80,7 +80,7 @@ io.on('connection', (socket) => {
   }
 
 
-  socket.on("request-mechanic", async (data) => {
+  socket.on("request-mechanic", warpAsync(async (data) => {
 
     const service = await Service.create({
       userId,
@@ -95,10 +95,10 @@ io.on('connection', (socket) => {
         userId
       });
     });
-  });
+  }));
 
 
-  socket.on("accept-service", async (data) => {
+  socket.on("accept-service",warpAsync (async (data) => {
     await Service.findByIdAndUpdate(data.serviceId, {
       mechanicId: userId,
       status: "accepted"
@@ -110,23 +110,23 @@ io.on('connection', (socket) => {
     if (userSocket) {
       io.to(userSocket).emit("service-confirmed");
     }
-  });
+  }));
 
 
-  socket.on("reject-service", async (data) => {
+  socket.on("reject-service",warpAsync( async (data) => {
     await Service.findByIdAndUpdate(data.serviceId, {
       mechanicId: userId,
       status: "rejected"
     });
-  });
+  }));
 
 
 
-  socket.on("disconnect", () => {
+  socket.on("disconnect",warpAsync( () => {
     delete onlineMechanics[userId];
     delete onlineUsers[userId];
-  });
-});
+  }));
+}));
 
 
 
@@ -203,7 +203,7 @@ app.post("/signup", warpAsync(async (req, res, next) => {
   }
 
   const user = await User.create({ email, password, username });
-  const token = createSecretToken(user._id);
+  const token = createSecretToken({id: user._id,isMechanic: user.isMechanic});
   res.cookie("token", token, {
     withCredentials: true,
     httpOnly: false,

@@ -4,9 +4,13 @@ import { ToastContainer, toast } from "react-toastify";
 import { useNavigate,Link } from "react-router-dom";
 import './SignUp.css'
 import Navbar from "../../Navbar";
+import { useAuth } from "../../Providers/AuthContext";
+
 
 export default function SignUp() {
   const navigate = useNavigate();
+    const { login } = useAuth();
+  
   let [fromData, setFormData] = useState({
     email: "",
     username: "",
@@ -50,6 +54,8 @@ export default function SignUp() {
     const { success, message } = data;
    
     if (success) {
+      login({ email: data.user.email,username: data.user.username,id: data.user.id,isMec: data.user.isMec });
+
       handleSuccess(message);
       setTimeout(() => {
         navigate("/");
@@ -74,7 +80,8 @@ export default function SignUp() {
 
           <label className="form-lable" htmlFor="email">email</label>
           <input className="form-input"
-            type="text"
+            type="email"
+
             name="email"
             onChange={handleInputChange}
             value={fromData.email}
