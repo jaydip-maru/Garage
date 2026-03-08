@@ -1,102 +1,156 @@
 .book-Appointment{
-    z-index: 13;
-    padding:80px 10px;
-}
+    z-index:13;
 
+    display:flex;
+    justify-content:center;
+    background:white;
+}
 
 .continer1{
     display:flex;
-    max-width:1400px;
-    margin:auto;
+    max-width:1450px;
+    width:100%;
+    gap:60px;
+    align-items:center;
 }
+
 .hedding{
-    font-weight: 600;
-    line-height: 30px;
-    padding: 0 !important;
-
+    font-weight:600;
+    line-height:34px;
+    padding:0 !important;
+    font-size:36px;
+    color:#111827;
 }
+
 .left-book{
-   
-    height: 100%;
-
-    flex: 1;
+    flex:1;
 }
+
 .right-book{
-    height: 100%;
-    width: 50%;
-    flex: 1;
-
-    
+    flex:1;
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
+
 .para{
-    font-size: 28px;
-    line-height: 30px;
-
+    font-size:22px;
+    line-height:32px;
+    color:#6b7280;
 }
-
 
 .logo-div{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    margin-top:20px;
+}
+.log-1{
+    font-weight: 800;
+    font-size: 15px;
+    color: black;
+}
+.number{
+    font-weight: 1000;
+    font-size: 25px;
+    color: rgb(62, 61, 61);
+    text-decoration: none;
 }
 
 
 .button-book{
-    background-color: rgb(37, 36, 36);
-  border-radius: 5px;
-  margin-top: 4px;
-  color: aliceblue;
-  width: 40vw;
-  font-size: 20px;
-
+    background-color:#111827;
+    border-radius:6px;
+    margin-top:15px;
+    color:white;
+    width:40vw;
+    font-size:18px;
+    padding:12px;
+    border:none;
+    transition:0.3s;
 }
+
 .button-book:hover{
     background:#000;
     transform:translateY(-2px);
 }
 
-@media (max-width: 700px) {
-    .continer1{
-        height: auto;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        margin-top: 30px;
-        margin-bottom: 20px;
-    }
-        .left-book{
-   
-            height: 100%;
-            width: 100%;
-            margin-right: 0px;
-            padding: 0px;
-            margin-bottom: 30px;
-        }
-        .right-book{
-            height: 100%;
-            width: 100%;
+@media (max-width:1024px){
 
-            margin-right: 0px;
-            padding: 0px;
-            margin-bottom: 20px;
+.continer1{
+gap:0px;
+}
 
-            
-        }
-        .hedding{
-            font-weight: 600;
-            line-height: 30px;
-            padding: 0 !important;
-            margin-bottom: 2px;
-        }
-        
-        .button{
-          width: 100%;
-        }
-    
-   }
+.para{
+font-size:20px;
+}
 
+.button-book{
+width:60%;
+}
+
+}
+
+@media (max-width:700px){
+
+.book-Appointment{
+    margin-top: 20px;
+padding:15px 20px;
+}
+
+.continer1{
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding-top:10px;
+margin-top: 10px;
+}
+
+.left-book{
+width:100%;
+margin-bottom:10px;
+padding:0 30px 0 30px;
+
+}
+
+.right-book{
+width:100%;
+padding:30px;
+}
+
+.hedding{
+font-size:28px;
+line-height:32px;
+}
+
+.para{
+font-size:18px;
+line-height:28px;
+}
+
+.button-book{
+width:100%;
+font-size:17px;
+}
+
+.logo-div{
+flex-direction:column;
+align-items:flex-start;
+gap:10px;
+}
+
+}
+
+@media (max-width:480px){
+
+.hedding{
+font-size:24px;
+}
+
+.para{
+font-size:16px;
+}
+
+}

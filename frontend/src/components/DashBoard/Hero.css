@@ -3,40 +3,38 @@
     width: 100%;
     position: relative;
     display: flex;
+    overflow: hidden;
 }
-
-
-
 
 .img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     position: absolute;
-    animation: fade 9s ease-in-out infinite alternate;
-
+    animation: fade 12s ease-in-out infinite alternate;
 }
 
 .overlay {
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.3),
+        rgba(0,0,0,0.65)
+    );
     z-index: 9;
 }
 
-
-
 .head-div {
-
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: end;
     color: white;
-   padding: 20px;
-   width: 80vw;
-   z-index: 10;
+    padding: 40px;
+    width: 80vw;
+    z-index: 10;
 }
 
 .contant{
@@ -46,16 +44,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
-  
-
-
 }
+
 .overlay1 {
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: white;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,1),
+        rgba(255,255,255,0.85)
+    );
     z-index: 11;
 }
 
@@ -63,17 +62,17 @@
     font-size: 9vw;
     color: white;
     line-height: 95%;
-    font-family: "Twklausanne 700",Arial,sans-serif;
-   
+    font-family: "Twklausanne 700", Arial, sans-serif;
     position: relative;
-    vertical-align: inherit;
     font-weight: 700;
     width: 85vw;
     padding: 10px;
-    transform:translateY(70px);
-    animation:fadeUp 3s ease forwards;
-  
+    transform: translateY(70px);
+    animation: fadeUp 1.8s ease forwards;
+    letter-spacing: -3px;
+    text-shadow: 0 10px 40px rgba(0,0,0,0.6);
 }
+
 .book-now-div{
     z-index: 12;
     position: absolute;
@@ -81,24 +80,47 @@
 }
 
 
+@keyframes fade{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.08);
+    }
+}
+
+
+@keyframes fadeUp{
+    0%{
+        opacity:0;
+        transform:translateY(90px);
+    }
+    100%{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 @media (min-width: 700px) {
     .hero{
-     height: 94vh;
-     width: 100%;
+        height: 94vh;
+        width: 100%;
     }
-    
-   }
-   @media (max-width: 700px) {
+}
+
+@media (max-width: 700px) {
+
     .contant{
         height: 58vh;
         width: 100%;
-        margin-left: 00px;
-    margin-right: 00px;
-    margin-top: 20px;
-
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 20px;
     }
-    
-   }
 
+    .headding{
+        font-size: 12vw;
+        line-height: 100%;
+    }
 
-
+}

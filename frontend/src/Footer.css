@@ -1,80 +1,60 @@
 .footer{
-    background-color: rgb(22, 21, 21);
-    height: auto;
-    width: 100%;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    
-
+    background: #0f172a;
+    color: #fff;
+    padding: 60px 20px;
 }
 
-.head-footer{
-    font-size: 100px;
-    font-weight: 700;
-}
 .page{
     display: flex;
     justify-content: space-between;
-    padding: 30px;
-    font-size: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
 }
-.page-in-my{
-    display: flex;
-    gap: 8px;
-}
+
+.page-in-my,
 .page-in-notmy{
     display: flex;
-    gap: 8px;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.email{
-    width: 100%;
-   font-size: 8.5vw;
-}
-
-@media (max-width: 700px) {
-    .footer{
-        background-color: rgb(22, 21, 21);
-        width: 100%;
-        color: white;
-        display: flex;
-        flex-direction: column;
-
-    
-    }
-    
-    .head-footer{
-        font-size: 10px;
-        font-weight: 700;
-    }
-    .page{
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-        font-size: 10px;
-    }
-    .page-in-my{
-        display: flex;
-        gap: 4px;
-    }
-    .page-in-notmy{
-        display: flex;
-        gap: 4px;
-    }
-    
-    .email{
-        font-size: auto;
-    }
-
-}
 .footer-link{
+    color: #cbd5f5;
     text-decoration: none;
-    color: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .footer-link:hover{
+    color: #38bdf8;
+    transform: translateX(5px);
+}
+
+.social-media{
+    margin-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 25px;
+}
+
+.social-media .page-in-my{
+    flex-direction: row;
+    gap: 20px;
+}
+
+.social-media a{
     text-decoration: none;
-    color: rgb(100, 95, 95);
+    font-weight: 500;
+}
+
+.email{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.page-in-notmy p{
+    font-size: 14px;
+    opacity: 0.7;
 }

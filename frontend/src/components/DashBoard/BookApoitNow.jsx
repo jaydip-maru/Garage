@@ -8,9 +8,9 @@ function BookApoitNow() {
       <div className="left-book">
             <div className="">
                 <h1 className="mb-3 hedding">Your Vehicle’s Perfect Partner</h1>
-                <p className="mb-3 para ml-1">  Your vehicle deserves the best –and we are here to provide it.</p>
+                <p className="mb-3 para ">  Your vehicle deserves the best –and we are here to provide it.</p>
                 <div className="logo-div">
-                    <p className=" log-1">Call Now <br /><Link> +9199797734496</Link></p>
+                    <p className=" log-1">Call Now <br /><Link className="number"> 99797734496</Link></p>
                     <p className=" log-2"> </p>
                 </div>
             </div>

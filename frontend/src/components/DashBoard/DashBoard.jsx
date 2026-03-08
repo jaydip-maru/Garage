@@ -64,7 +64,6 @@ function DashBoard() {
             <TrustGiver  />
             <WhatProblemSolve />
             <WhoBehindAllOfThat />
-            <Riview />
             <Contect /> 
         </div>
     </div>
