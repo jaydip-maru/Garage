@@ -123,4 +123,10 @@
         line-height: 100%;
     }
 
+    .head-div {
+        padding: 20px;
+        padding-bottom: 40px;
+        width: 100%;
+    }
+
 }
