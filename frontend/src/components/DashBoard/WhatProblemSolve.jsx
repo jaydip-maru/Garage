@@ -6,8 +6,8 @@ import {  Parallax } from "react-scroll-parallax";
 function WhatProblemSolve() {
     return ( <>
      <Parallax
-  translateY={[5, 0]}
-  opacity={[-2, 5]}
+  translateY={[-11,1 ]}
+  opacity={[-1, 5]}
 
  
 >

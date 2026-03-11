@@ -205,8 +205,11 @@ app.post("/signup", warpAsync(async (req, res, next) => {
   const user = await User.create({ email, password, username });
   const token = createSecretToken({id: user._id,isMechanic: user.isMechanic});
   res.cookie("token", token, {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    maxAge: 60 * 60 * 60 * 24,
     withCredentials: true,
-    httpOnly: false,
   });
   res
     .status(200)
