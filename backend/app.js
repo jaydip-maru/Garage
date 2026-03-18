@@ -137,7 +137,7 @@ io.on('connection', warpAsync((socket) => {
 app.get("/", warpAsync(async (req, res) => {
   const allGarage = await Garage.find({});
   
-  res.send("Backend is running successfully 🚀");
+  return res.json(allGarage);
 }))
 app.post("/verify",userVerification);
 

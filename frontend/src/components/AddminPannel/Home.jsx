@@ -6,9 +6,8 @@ import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import Garage from "./Garage";
 import Navbar from "../../Navbar";
-import UserAppReq from "../Services/UserAppReq"
-import MecGetService from "../Services/MecGetService"
-
+import "./Home.css"
+import Spinner from "../Spinner";
 
 
 
@@ -17,13 +16,21 @@ function Home() {
   const {user,login,logout} = useAuth();
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies(["token"]);
-  const [currUserIsMec, setcurrUserIsMec] = useState(false);
+  const [loding, setloding] = useState(false);
 
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}`).then((res) => {
-      SetGarages(res.data);
-    });
+    setloding(true)
+    axios
+      .get(import.meta.env.VITE_API_URL)
+      .then((res) => {
+        SetGarages(res.data);
+        setloding(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Failed to load garages");
+      });
   }, []);
 
 
@@ -35,10 +42,10 @@ function Home() {
     <>
     <Navbar color="white"/>
 
-
       <div className="container">
         <h1>List Of Garages</h1>
         <div className=" row">
+          {loding &&  <Spinner />}
           {Garages.map((Gar) => {
             return (
               <Garage
@@ -55,11 +62,11 @@ function Home() {
             );
           })}
         </div>
+    
       </div>
 
-{currUserIsMec && <MecGetService />}
 
-         
+     
 
       <ToastContainer  />
     </>

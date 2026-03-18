@@ -24,7 +24,7 @@ function Show() {
             toast.success(message);
        
             setTimeout(() => {
-                navigate("/");
+                navigate("/home");
               }, 1000);
     }
 

@@ -29,6 +29,7 @@
         flex-direction: column;
         gap: 0px;
         margin-bottom: 40px;
+        padding: 10px;
     
     }
     
@@ -40,8 +41,8 @@
     .about-technicians{
         margin-top: 10px;
         width: 80%;
-        font-size: 15px;
-        font-weight: 600;
+        font-size: 18px;
+        font-weight: 550;
         margin-left: 5px;
     }
 }

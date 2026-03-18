@@ -6,10 +6,13 @@ import { useAuth } from "../../Providers/AuthContext";
 import Navbar from "../../Navbar";
 import "./New.css";
 import Footer from "../../Footer";
+import Spinner from "../Spinner";
 
 
 function New() {
   const navigate = useNavigate();
+  const [loding, setloding] = useState(false);
+
   const {user} = useAuth();
   let [fromData, setFormData] = useState({
     name: "",
@@ -43,6 +46,7 @@ function New() {
 
   let handleFromSubmit = async (event) => {
     event.preventDefault();
+    setloding(true)
     const data1 = new FormData();
     console.log(fromData);
     data1.append("name", fromData.name);
@@ -61,10 +65,12 @@ function New() {
     const {message , success} = data;
   
     if(success) {
+    setloding(false)
+
+      handleSuccess("Garage added Successfully");
       setTimeout(() => {
-        handleSuccess(message);
         navigate("/");
-      }, 4000);
+      },4000);
     }else{
       handleError(message);
     }
@@ -109,6 +115,8 @@ function New() {
   return (
     <>
     <Navbar color="springgreen" />
+              {loding &&  <Spinner />}
+    
       <form
         onSubmit={handleFromSubmit}
         className="container"

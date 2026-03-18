@@ -75,17 +75,22 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        padding: 10px;
     }
 
     .img-cont p{
-        font-size: 16px;
+        font-size: 20px;
         font-weight: 600;
         width: 100%;
+
+
     
     }
 
     .from-detail{
         width: 100%;
+        padding: 10px;
+
     }
 
 
