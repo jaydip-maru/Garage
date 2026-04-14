@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Buenos Aires Web';
+    src: url('/fonts/BuenosAiresWeb-Bold.woff2') format('woff2');
+    font-weight: 900;
+  }
+
+  *{
+  font-family: 'Buenos Aires Web', Arial, sans-serif;
+
+  }

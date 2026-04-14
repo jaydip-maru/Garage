@@ -1,10 +1,21 @@
 import { Link } from "react-router-dom";
 import "./BookApointNow.css"
+import {  Parallax } from "react-scroll-parallax";
+
 
 function BookApoitNow() {
     return ( <>
+
     <div className="book-Appointment">
         <div className="continer1">
+        <Parallax
+  translateY={[5, 0]}
+  scale={[.85, 1]}
+
+  opacity={[-3, 5]}
+   easing="easeOutCubic"
+
+> 
       <div className="left-book">
             <div className="">
                 <h1 className="mb-3 hedding">Your Vehicle’s Perfect Partner</h1>
@@ -15,6 +26,15 @@ function BookApoitNow() {
                 </div>
             </div>
       </div>
+      </Parallax>
+      <Parallax
+ translateX={['400px', '0px']}
+  scale={[.75, 1]}
+
+  opacity={[-6, 5]}
+   easing="easeOutCubic"
+
+> 
       <div className="right-book">
             <div>
                 <h1 className="mb-3 hedding">Request a Quote</h1>
@@ -22,6 +42,8 @@ function BookApoitNow() {
                 <Link to="/bookNow"  > <button className="button-book p-2">Book Now</button></Link>
             </div>
       </div>
+      </Parallax>
+
       </div>
     </div>
 

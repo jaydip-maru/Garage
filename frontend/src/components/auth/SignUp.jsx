@@ -40,7 +40,7 @@ export default function SignUp() {
   const hendleSubmit = async (event) => {
     event.preventDefault();
     console.log(fromData);
-    const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
+    const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, {
       ...fromData,
     },{
       withCredentials: true

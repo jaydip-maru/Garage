@@ -27,8 +27,13 @@ function TrustGiver() {
           </div>
         </div>
         <div class="content">
-          <TrustSectionImage img="https://thumbs.dreamstime.com/b/two-mechanics-fixing-car-road-35981984.jpg" text="We Provide a user to Get Appoitment of GarageMen At a Time When a they scutst onrode" color="gray" />
+
+          <TrustSectionImage className=""
+           img="https://thumbs.dreamstime.com/b/two-mechanics-fixing-car-road-35981984.jpg" text="We Provide a user to Get Appoitment of GarageMen At a Time When a they scutst onrode" color="gray" />
+      
+
           <TrustSectionImage img="https://www.shutterstock.com/image-photo/happy-smile-caucasian-young-male-600nw-2631696015.jpg" text="We Provide a user to Get Appoitment of GarageMen At Home" color="orange" />
+
           <TrustSectionImage img="https://as1.ftcdn.net/jpg/05/55/66/90/1000_F_555669058_Cj9rCX34DDrMOlHENhz06bgxVkg0nao4.jpg" text="We Provide a user to Get Appoitment of Vehical Washer" color="green" />
          
         </div>
@@ -43,6 +48,14 @@ export default TrustGiver;
 
 function TrustSectionImage({img,text,color}) {
   return ( <>
+           <Parallax
+  translateY={[5, 0]}
+  scale={[.85, 1]}
+  rotate={[-40,0]}
+  opacity={[-3, 5]}
+   easing="easeOutCubic"
+
+> 
     <div className="img-divition">
             <Link to="/bookNow">
               
@@ -56,5 +69,7 @@ function TrustSectionImage({img,text,color}) {
             </div>
             </Link>
           </div>
+          </Parallax>
+
   </> );
 }

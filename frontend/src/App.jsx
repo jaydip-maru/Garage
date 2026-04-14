@@ -12,6 +12,7 @@ import ContectMain from './components/Contect/ContectMain';
 import AboutMe from './components/AboutMe/AboutMe';
 import UserAppReq from './components/Services/UserAppReq';
 import MyProfile from './components/auth/MyProfile';
+import "./App.css"
 // import { useAuth } from "../../Providers/AuthContext";
 
 

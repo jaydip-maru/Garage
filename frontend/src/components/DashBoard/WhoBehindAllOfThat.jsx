@@ -1,8 +1,18 @@
 import "./WhoBehindAllOfThat.css";
+import {  Parallax } from "react-scroll-parallax";
+
 
 function WhatBehindAllOfThat() {
     return ( 
         <>
+             <Parallax
+  translateY={[5, 0]}
+  scale={[.75, 1]}
+
+  opacity={[-4, 5]}
+   easing="easeOutCubic"
+
+> 
         <div className="container-who">
             <div>
                 <img src="https://img.freepik.com/premium-photo/group-three-car-service-technician-men-woman-talking-workplace-people-working-together-vehicle-repair-garage-service-shop-check-repair-customer-car-automobile-service-center_1429-26367.jpg" alt="" className="macanicsPhoto" />
@@ -11,6 +21,7 @@ function WhatBehindAllOfThat() {
                 <p className="about-technicians">Our technicians are specialists in all areas of vehicle repair. They undergo regular training to stay up to date with the latest industry trends and deliver precise, reliable solutions.</p>
             </div>
         </div>
+        </Parallax>
         </>
      );
 }

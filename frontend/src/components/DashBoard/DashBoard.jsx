@@ -58,7 +58,7 @@ function DashBoard() {
         <Hero
             img="https://previews.123rf.com/images/uatp2/uatp21310/uatp2131000308/22754977-image-of-a-repair-garage.jpg"
 
-          text="We are With You Every Second on Your Way."/>
+          text="We are with you every second on your way."/>
         <div className='Other-section'>
             
             <TrustGiver  />

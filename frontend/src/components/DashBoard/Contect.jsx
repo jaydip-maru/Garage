@@ -1,6 +1,7 @@
 import "./Contect.css"
 import { useState } from "react";
 import jay from "/myPhoto2.png"
+import {  Parallax } from "react-scroll-parallax";
 
 
 
@@ -40,6 +41,14 @@ function Contect() {
 
 
     return ( <>
+           <Parallax
+  translateY={[5, 0]}
+  scale={[.85, 1]}
+
+  opacity={[-3, 5]}
+   easing="easeOutCubic"
+
+> 
     <div className="Wrapper-cont">
         <div className="img-cont">
             <p>If You Have a Any Query About Out Service Or If You Want To Know More About How We Can Give a Service Then Contect Out Team Member.</p>
@@ -80,6 +89,7 @@ function Contect() {
             </div>
         </div>
     </div>
+    </Parallax>
     </> );
 }
 

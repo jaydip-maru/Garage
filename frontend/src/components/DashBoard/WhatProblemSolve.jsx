@@ -42,6 +42,13 @@ function WhatProblemSolve() {
 
 function Steps({number, dect}) {
     return ( <>
+             <Parallax
+  translateY={[5, 0]}
+  scale={[.90, 1]}
+  opacity={[-3, 5]}
+   easing="easeOutCubic"
+
+>
          <div className="wrapper-step">
             <div className="num-wrap">
             <p className="num ">{number}</p>
@@ -53,7 +60,7 @@ function Steps({number, dect}) {
             </div>
             <hr />
         </div>
-
+        </Parallax>
     </> );
 }
 

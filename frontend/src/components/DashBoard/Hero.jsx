@@ -23,11 +23,11 @@ function Hero({img, text}) {
         </div>
        
     </div>
+ 
     <div className='contant'>
       <div className='overlay1'></div>
     <BookApoitNot  className="book-now-div"/>
     </div>
-   
 
 
     </> );

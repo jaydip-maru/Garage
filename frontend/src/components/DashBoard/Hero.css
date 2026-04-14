@@ -59,18 +59,24 @@
 }
 
 .headding {
-    font-size: 9vw;
-    color: white;
-    line-height: 95%;
-    font-family: "Twklausanne 700", Arial, sans-serif;
-    position: relative;
-    font-weight: 700;
-    width: 85vw;
-    padding: 10px;
-    transform: translateY(70px);
-    animation: fadeUp 1.8s ease forwards;
-    letter-spacing: -3px;
-    text-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    font-size: 160px;
+  font-weight: 600;
+  line-height: 1;
+
+  font-family: 'Buenos Aires Web', Arial, sans-serif;
+  transform: translate3d(0px, 0px, 0px)
+             scale3d(1, 1, 1)
+             rotateX(0deg)
+             rotateY(0deg)
+             rotateZ(0deg)
+             skew(0deg, 0deg);
+
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+
+  opacity: 1;
+  transition: all 0.6s ease;
+
 }
 
 .book-now-div{

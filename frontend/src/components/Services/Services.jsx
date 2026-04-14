@@ -20,7 +20,7 @@ function Services() {
             text="Services"
           />
           <div className="Other-section">
-            <VehicleSection className="mt-0" />
+
             <WhatProblemSolve />
             <ProblemSolution className="mt-0" />
             <div></div>
