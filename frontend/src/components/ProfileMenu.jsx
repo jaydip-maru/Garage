@@ -30,19 +30,20 @@ export default function ProfileMenu() {
       {/* profile button */}
      
       <div className="profile-btn" onClick={() => setOpen(!open)}>
-      <FaUserCircle className="avatar"/>
-            <span>{user.username}</span>
+      <div className="avatar">
+  {user?.username?.charAt(0)?.toUpperCase() || "U"}
+</div>
       </div>
 
       {/* dropdown */}
       {open && (
         <div className="profile-menu">
-       <div className="menu-item" ><MyProfile /> . </div>
+       <div className="menu-item" ><MyProfile />  </div>
        
           <div className="menu-item">⚙️ Settings</div>
           <div className="menu-item">📁 Projects</div>
           <div className="menu-divider"></div>
-          <div className="menu-item logout">🚪 <Logout /> </div>
+          <div className="menu-item logout"><Logout /></div>
         </div>
       )}
     </div>

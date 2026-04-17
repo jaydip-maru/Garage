@@ -60,6 +60,7 @@ function DashBoard() {
 
           text="We are with you every second on your way."/>
         <div className='Other-section'>
+        
             
             <TrustGiver  />
             <WhatProblemSolve />

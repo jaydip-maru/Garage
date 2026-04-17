@@ -43,9 +43,9 @@ function Contect() {
     return ( <>
            <Parallax
   translateY={[5, 0]}
-  scale={[.85, 1]}
+  scale={[.75, 1]}
 
-  opacity={[-3, 5]}
+  opacity={[-5, 5]}
    easing="easeOutCubic"
 
 > 

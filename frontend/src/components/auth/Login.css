@@ -5,10 +5,10 @@ body {
   }
   
   .hero-login {
-    display: flex;
-    height: 92vh;
-    margin: 40px auto;
     max-width: 1100px;
+    margin: auto;
+    display: flex;
+    height: 82vh;
     border-radius: 24px;
     overflow: hidden;
     background: white;
@@ -17,16 +17,16 @@ body {
   
   .form-log {
     flex: 1;
-    padding: 80px 60px;
+    padding: 80px 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
   
   .Login-haadding {
-    font-size: 34px;
+    font-size: 30px;
     font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     color: #111827;
   }
   
@@ -37,9 +37,11 @@ body {
   }
   
   .form-lable {
-    font-size: 17px;
-    font-weight: 500;
-    color: #6b7280;
+  margin-top: 10px;
+
+    font-size: 20px;
+  color: #6b7280;
+  font-weight: 500;
   }
   
   .form-input {
@@ -48,9 +50,9 @@ body {
     border: none;
     border-bottom: 2px solid #e5e7eb;
     background: transparent;
-    font-size: 18px;
-    transition: 0.3s ease;
-    margin-bottom: 5px;
+  
+    font-size: 20px;
+    transition: 0.3s;
 
   }
   
@@ -67,8 +69,8 @@ body {
     padding: 14px;
     background: black;
     border: none;
-    border-radius: 14px;
-    font-size: 15px;
+
+    font-size: 20px;
     font-weight: 600;
     color: white;
     cursor: pointer;
@@ -76,9 +78,10 @@ body {
   }
   
   .button:hover {
-    background: #4f46e5;
+    background: rgb(219, 241, 234);
+    color: black;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(99,102,241,0.3);
+    box-shadow: 0 20px 25px rgba(37, 37, 38, 0.3);
   }
   
   .para-log {
@@ -99,7 +102,8 @@ body {
   }
   
   .img-login {
-    width: 100%;
+    max-width: 500px;
+
     height: 100%;
     object-fit: cover;
   }
@@ -115,16 +119,38 @@ body {
   }
   
   @media (max-width: 900px) {
+   
     .hero-login {
       flex-direction: column;
+      box-shadow: 0 ;
       height: auto;
+      margin: 0px 0px;
+
     }
-  
     .img-log {
-      height: 280px;
+     display: none;
     }
-  
     .form-log {
-      padding: 40px;
+      padding: 20px 20px;
+      height: auto;
+
+      display: flex;
+    flex-direction: column;
+    justify-content: start;
     }
+    .hero-login {
+      height: 92vh;
+      margin: 0px 0;
+      border-radius: 0px;
+      box-shadow: 0 ;
+    }
+   
+    .main {
+      padding: 0px;
+    }
+    .Hero {
+      height: 82vh;
+      box-shadow: 0;
+   
+  }
   }

@@ -76,7 +76,7 @@ export default function SignUp() {
       </div>
         <div className="form"> 
           <form action="form-list" onSubmit={hendleSubmit}>
-          <h2 className="hadding">Get Started Now</h2>
+          <h2 className="hadding">DASHEV GARAGE</h2>
 
           <label className="form-lable" htmlFor="email">email</label>
           <input className="form-input"
@@ -109,7 +109,7 @@ export default function SignUp() {
 
           />
 
-          <button className="button mt-5">Signup</button>
+          <button className="button-sign mt-5">Signup</button>
         <p className="para-log">if you have account <Link to="/login">Login</Link> here!</p>
 
         </form>

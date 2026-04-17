@@ -67,9 +67,10 @@ function Login() {
     <>
       <Navbar color="#deeee6" />
       <div>
+      
         <div className="hero-login">
           <div className="form-log">
-            <h3 className="Login-haadding">Login</h3>
+            <h3 className="Login-haadding">DASHEV GARAGE</h3>
             <form className="form-list-log" action="" onSubmit={hendleSubmit}>
               <label className="form-lable" htmlFor="email">
                 email
@@ -97,7 +98,7 @@ function Login() {
               />
 
 
-              <button className="button mt-5">login</button>
+              <button className="button mt-5">Login</button>
               <p className="para-log">
                 if you don't have account <Link to="/signup">SignUp</Link>
               </p>

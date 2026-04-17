@@ -28,10 +28,10 @@ function BookApoitNow() {
       </div>
       </Parallax>
       <Parallax
- translateX={['400px', '0px']}
+ translateX={['-400px', '00px']}
   scale={[.75, 1]}
 
-  opacity={[-6, 5]}
+  opacity={[-10, 5]}
    easing="easeOutCubic"
 
 > 

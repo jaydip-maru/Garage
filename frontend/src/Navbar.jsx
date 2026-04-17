@@ -10,7 +10,7 @@ function Navbar({ color }) {
     <>
       <nav
         className="navbar navbar-expand-lg   sticky-top  "
-        style={{ backgroundColor: `${color || "white"}` }}
+        style={{ backgroundColor: `${color}` }}
       >
         <div className="container-fluid">
           <button

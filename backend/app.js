@@ -4,7 +4,7 @@ if (process.env.NODE_ENV != "producation") {
 const express = require('express')
 const app = express();
 
-const warpAsync = require("./utilty/Warper.js")
+const warpAsync = require("./utils/Warper.js")
 
 const mongoose = require('mongoose');
 app.use(express.urlencoded({ extended: true }));
@@ -27,7 +27,7 @@ app.use(methodOverride("_method"));
 const Garage = require("./Models/Garage");
 const User = require("./Models/User/User.js")
 
-const { uploadToCloudinary } = require("./cloudeConfig.js");
+const { uploadToCloudinary } = require("./config/cloudinary.js");
 
 const multer = require('multer')//file uplode 
 const upload = multer({ storage: multer.memoryStorage() })
@@ -192,7 +192,7 @@ app.delete("/garage/:id", warpAsync(async (req, res) => {
   return res.json({message: "listing was deleted"});
 }))
 
-app.post("/signup", warpAsync(async (req, res, next) => {
+app.post("/auth/signup", warpAsync(async (req, res, next) => {
   const { email, username, password } = req.body;
 
   const existUser = await User.findOne({ username });
@@ -217,7 +217,7 @@ app.post("/signup", warpAsync(async (req, res, next) => {
 }))
 
 
-app.post("/login", warpAsync(async (req, res, next) => {
+app.post("/auth/login", warpAsync(async (req, res, next) => {
 try{
   const { email, password } = req.body;
 
@@ -256,7 +256,7 @@ try{
 }
 }));
 
-app.post("/logout",warpAsync( (req, res) => {
+app.post("/auth/logout",warpAsync( (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
     secure: true,
@@ -298,6 +298,5 @@ const port = process.env.PORT || 8080;
 server.listen(port, () => {
   console.log("Server running on 8080");
 });
-
 
 
