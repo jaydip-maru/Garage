@@ -1,6 +1,6 @@
 const User = require("../Models/User/User");
 const bcrypt = require("bcryptjs");
-const { createSecretToken } = require("../secretToken");
+const { createSecretToken } = require("../utils/secretToken");
 
 exports.signup = async (req, res) => {
    const { email, username, password } = req.body;
@@ -59,7 +59,7 @@ exports.login = async (req, res) => {
   });
  
    res.status(201).json({ message: "User logged in successfully", success: true,username: user.username, id: user._id, isMec: user.isMechanic});
-   next()
+
  } catch(err) {
    console.log(err);
  }
