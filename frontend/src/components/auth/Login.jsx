@@ -66,14 +66,14 @@ function Login() {
   return (
     <>
       <Navbar color="#deeee6" />
-      <div>
+      <div className="main">
       
         <div className="hero-login">
           <div className="form-log">
             <h3 className="Login-haadding">DASHEV GARAGE</h3>
             <form className="form-list-log" action="" onSubmit={hendleSubmit}>
               <label className="form-lable" htmlFor="email">
-                email
+              email
               </label>
               <input
                 className="form-input"
@@ -81,7 +81,7 @@ function Login() {
                 name="email"
                 onChange={handleInputChange}
                 value={userData.email}
-                placeholder="Email"
+                placeholder="What's your email"
               />
 
 
@@ -94,13 +94,13 @@ function Login() {
                 name="password"
                 onChange={handleInputChange}
                 value={userData.password}
-                placeholder="PassWord"
+                placeholder="Enter PassWord"
               />
 
 
               <button className="button mt-5">Login</button>
               <p className="para-log">
-                if you don't have account <Link to="/signup">SignUp</Link>
+                if you don't have account <Link to="/signup">Create new account!</Link>
               </p>
             </form>
           </div>

@@ -9,7 +9,6 @@ import {ToastContainer, toast } from "react-toastify";
   function MecGetService() {
 
     const [currReq, setCurrReq] = useState(false);
-    const [problem, setproblem] = useState("");
     const [data, setdata] = useState(null);
     const hendelSuccess = (msg) => {
       toast.success(msg);
@@ -18,9 +17,9 @@ import {ToastContainer, toast } from "react-toastify";
 
     socket.on("new-service", (data) => {
       setCurrReq(true);
-      setproblem(data.problem);
-      setdata(data);
       console.log(data);
+
+      setdata(data);
 
       
     });
@@ -39,6 +38,7 @@ import {ToastContainer, toast } from "react-toastify";
 
     return ( <>
    {currReq && <ConfirmBox data={data} onYes={onAcepect} onNo={onReject}/>}
+
     </> );
   }
   

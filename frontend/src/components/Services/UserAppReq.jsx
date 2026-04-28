@@ -22,15 +22,6 @@ function UserAppReq() {
     location: ""
   });
 
-  let handleInputChange = (event) => {
-    let fieldName = event.target.name;
-    let newVal = event.target.value;
-
-    setFormData((fromData) => {
-      fromData[fieldName] = newVal;
-      return { ...fromData };
-    });
-  };
 
   const hendelSuccess = (msg) => {
     toast.success(msg);
@@ -44,12 +35,13 @@ function UserAppReq() {
 
       socket.emit("request-mechanic", {
         problem: fromData.problem,
+        location: fromData.location,
+      });
+      setFormData({
+        problem: "",
+        location: ""
       });
       hendelSuccess("Request sended to a Mechanics");
-      setFormData({
-         problem: "",
-    location: ""
-      })
     };
     
     socket.on("service-confirmed", () => {
@@ -58,22 +50,32 @@ function UserAppReq() {
     });
     
 
-    useEffect(() => {
+    // useEffect(() => {
         
       
-        if (!user) {
-          setTimeout(() => {
-            toast.error("login for book Service", {
-              position: "top-right",
-              autoClose: 5000,
-            });
-          },10);
-          navigate("/login");
+    //     if (!user) {
+    //       setTimeout(() => {
+    //         toast.error("Require a login for Service booking", {
+    //           position: "top-right",
+    //           autoClose: 5000,
+    //         });
+    //       },10);
+    //       navigate("/login");
         
-      }
+    //   }
     
-      }, [user]);
+    //   }, [user]);
 
+
+  let handleInputChange = (event) => {
+    let fieldName = event.target.name;
+    let newVal = event.target.value;
+
+    setFormData((fromData) => {
+      fromData[fieldName] = newVal;
+      return { ...fromData };
+    });
+  };
   
 
     return (  <>
@@ -96,7 +98,7 @@ function UserAppReq() {
               type="text"
               name="problem"
               id="problem"
-              value={fromData.name}
+              value={fromData.problem}
               onChange={handleInputChange}
               required
             />
@@ -118,7 +120,7 @@ function UserAppReq() {
               type="text"
               name="location"
               id="location"
-              value={fromData.name}
+              value={fromData.location}
               onChange={handleInputChange}
               required
             />

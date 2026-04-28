@@ -85,7 +85,7 @@ export default function SignUp() {
             name="email"
             onChange={handleInputChange}
             value={fromData.email}
-          placeholder="Email"
+          placeholder="What's your email"
 
           />
 
@@ -95,7 +95,7 @@ export default function SignUp() {
             name="username"
             onChange={handleInputChange}
             value={fromData.username}
-          placeholder="UserName"
+          placeholder="Add UserName"
 
           />
 
@@ -105,12 +105,12 @@ export default function SignUp() {
             name="password"
             onChange={handleInputChange}
             value={fromData.password}
-          placeholder="PassWord"
+          placeholder="Enter New PassWord"
 
           />
 
-          <button className="button-sign mt-5">Signup</button>
-        <p className="para-log">if you have account <Link to="/login">Login</Link> here!</p>
+          <button className="button-sign mt-5">Create account</button>
+        <p className="para-log">if you have account <Link to="/login">Login here!</Link> </p>
 
         </form>
       </div>

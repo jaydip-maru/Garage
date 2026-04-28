@@ -84,7 +84,8 @@ io.on('connection', warpAsync((socket) => {
 
     const service = await Service.create({
       userId,
-      problem: data.problem
+      problem: data.problem,
+      location: data.location,
     });
 
     Object.values(onlineMechanics).forEach((mechanicSocket) => {
@@ -92,7 +93,10 @@ io.on('connection', warpAsync((socket) => {
       io.to(mechanicSocket).emit("new-service", {
         serviceId: service._id,
         problem: service.problem,
-        userId
+        location: service.location,
+        userId,
+        createdAt: service.createdAt,
+    
       });
     });
   }));
@@ -243,8 +247,8 @@ try{
   
   res.cookie("token", token, {
     httpOnly: true,
-    secure: true,
-    sameSite: "none",
+    // secure: true,
+    // sameSite: "none",
     maxAge: 60 * 60 * 60 * 24,
     withCredentials: true,
  });
@@ -259,8 +263,8 @@ try{
 app.post("/auth/logout",warpAsync( (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
-    secure: true,
-    sameSite: "none",
+    // secure: true,
+    // sameSite: "none",
     withCredentials: true,
   });
 
