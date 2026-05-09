@@ -8,6 +8,8 @@ import Footer from "../../Footer";
 import Navbar from "../../Navbar";
 import VehicleSection from "../DashBoard/VehicleSection";
 import ProblemSolution from "../AboutMe/ProblemSolution";
+import imgService from "/service.avif"
+
 
 function Services() {
   return (
@@ -16,8 +18,8 @@ function Services() {
       <div className="Services">
         <ParallaxProvider>
           <Hero
-          img="https://images.unsplash.com/photo-1551522435-a13afa10f103?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyYWdlfGVufDB8fDB8fHww"
-            text="Services"
+          img={imgService}
+                      text="Services"
           />
           <div className="Other-section">
 

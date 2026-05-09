@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "./Login.css";
 import Navbar from "../../Navbar";
 import { useAuth } from "../../Providers/AuthContext";
+import imgLogin from "/login.jpg"
 
 
 function Login() {
@@ -108,7 +109,7 @@ function Login() {
             <div className="overlay-login"></div>
             <img
               className="img-login"
-              src="https://media.istockphoto.com/id/1347150429/photo/professional-mechanic-working-on-the-engine-of-the-car-in-the-garage.jpg?s=612x612&w=0&k=20&c=5zlDGgLNNaWsp_jq_L1AsGT85wrzpdl3kVH-75S-zTU="
+              src={imgLogin}
               alt=""
             />
           </div>

@@ -13,6 +13,7 @@ import AboutMe from './components/AboutMe/AboutMe';
 import UserAppReq from './components/Services/UserAppReq';
 import MyProfile from './components/auth/MyProfile';
 import "./App.css"
+import Otpverify from './components/auth/OtpVerify';
 // import { useAuth } from "../../Providers/AuthContext";
 
 
@@ -44,6 +45,8 @@ function App() {
         <Route  path="/home/garage/:id" element={<Show />} />
         <Route  path="/bookNow" element={<UserAppReq />} />
         <Route  path="/myProfile" element={<MyProfile />} />
+        <Route  path="/Otpverify" element={<Otpverify />} />
+
 
 
 

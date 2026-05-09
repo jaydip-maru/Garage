@@ -1,30 +1,51 @@
 const User = require("../Models/User/User");
 const bcrypt = require("bcryptjs");
 const { createSecretToken } = require("../utils/secretToken");
+const nodemailer = require("nodemailer");
+const otpGenerator = require("otp-generator");
+require("dotenv").config();
+
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: "garageapp9@gmail.com",
+    pass: "bdktzbejtrqccibz"
+  }
+});
 
 exports.signup = async (req, res) => {
    const { email, username, password } = req.body;
-  
-    const existUser = await User.findOne({ username });
+  console.log(password);
+
     const existUser1 = await User.findOne({ email });
   
-    if (existUser || existUser1) {
+    if (existUser1) {
       return res.json({ message: "user is exist" });
     }
-  
-    const user = await User.create({ email, password, username });
-    const token = createSecretToken({id: user._id,isMechanic: user.isMechanic});
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: true,
-      sameSite: "none",
-      maxAge: 60 * 60 * 60 * 24,
-      withCredentials: true,
+    const otp = otpGenerator.generate(6, {
+      digits: true,
+      alphabets: false,
+      upperCase: false,
+      specialChars: false
     });
+ 
+    console.log(password);
+    const user = await User.create(
+      { email,password, username,otp, otpExpires: Date.now() + 5 * 60 * 1000 });
+      await transporter.sendMail({
+        to: email,
+        subject: "Your OTP for Verification",
+        html: `<h2>Your OTP is: ${otp}</h2>`
+      });
+
     res
       .status(200)
-      .json({ message: "User signed in successfully", success: true, user });
+      .json({ message: "OTP sent to email", success: true, user });
 };
+
+
 
 exports.login = async (req, res) => {
  try{
@@ -33,19 +54,24 @@ exports.login = async (req, res) => {
    if (!email || !password) {
      return res.json({ message: "All field are require" });
    }
- 
    const user = await User.findOne({ email });
+
    if (!user) {
      console.log(" use not exist");
      return res.json({ message: "Incorect credintioal" });
    }
+   
  
    const auth = await bcrypt.compare(password, user.password);
- 
+
    if (!auth) {
      console.log(" use exist but not match");
  
      return res.json({ message: "Incorect credintioal" });
+   }
+
+   if(!user.isVerified){
+     return res.json({ message: "User is not verifyed" });
    }
  
    const token = createSecretToken({id: user._id,isMechanic: user.isMechanic});

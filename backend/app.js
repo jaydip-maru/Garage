@@ -15,6 +15,8 @@ const cors = require("cors");
 const authRoute = require("./routes/authRoutes");
 const garageRoute = require("./routes/garageRoutes");
 const serviceRoute = require("./routes/serviceRoutes");
+const otpRoute = require("./routes/OtpRoutes");
+
 
 
 let url = process.env.MONGO_URI;
@@ -38,6 +40,8 @@ app.use(cors({
 
 
 app.use("/auth",authRoute);
+app.use("/otp",otpRoute);
+
 app.use("/garage",garageRoute);
 app.use("/",serviceRoute);
 

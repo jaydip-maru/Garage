@@ -11,7 +11,7 @@
     width: 100%;
     object-fit: cover;
     position: absolute;
-    animation: fade 12s ease-in-out infinite alternate;
+    /* animation: fade 12s ease-in-out infinite alternate; */
 }
 
 .overlay {
@@ -62,20 +62,7 @@
     font-size: 160px;
   font-weight: 600;
   line-height: 1;
-
-  font-family: 'Buenos Aires Web', Arial, sans-serif;
-  transform: translate3d(0px, 0px, 0px)
-             scale3d(1, 1, 1)
-             rotateX(0deg)
-             rotateY(0deg)
-             rotateZ(0deg)
-             skew(0deg, 0deg);
-
-  transform-style: preserve-3d;
-  will-change: transform, opacity;
-
   opacity: 1;
-  transition: all 0.6s ease;
 
 }
 
@@ -86,26 +73,16 @@
 }
 
 
-@keyframes fade{
+/* @keyframes fade{
     0%{
         transform: scale(1);
     }
     100%{
         transform: scale(1.08);
     }
-}
+} */
 
 
-@keyframes fadeUp{
-    0%{
-        opacity:0;
-        transform:translateY(90px);
-    }
-    100%{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
 
 @media (min-width: 700px) {
     .hero{

@@ -15,6 +15,7 @@ import { useCookies } from "react-cookie";
 import {  useNavigate } from "react-router-dom";
 import Footer from '../../Footer';
 import MecGetService from '../Services/MecGetService';
+import imgHome from "/home.jpg"
 
 
 
@@ -56,7 +57,7 @@ function DashBoard() {
 <MecGetService />
 
         <Hero
-            img="https://previews.123rf.com/images/uatp2/uatp21310/uatp2131000308/22754977-image-of-a-repair-garage.jpg"
+            img={imgHome}
 
           text="We are with you every second on your way."/>
         <div className='Other-section'>

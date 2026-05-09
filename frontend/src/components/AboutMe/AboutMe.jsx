@@ -5,14 +5,16 @@ import { ParallaxProvider } from "react-scroll-parallax";
 import "./Aboutme.css";
 import ProblemSolution from "./ProblemSolution";
 import jay from "/myPhoto.png"
+import imgAbout from "/aboutme.jpg"
+
 
 function AboutMe() {
     return ( <>
     <Navbar  color="pink"/>
     <ParallaxProvider>
-        <Hero img="https://www.garageliving.com/hubfs/Reflect-hero-Garage-Living-Designer-Series-2024-update.jpg" text="About Me" />
+        <Hero img={imgAbout} text="About Me" />
 
-        <ProblemSolution />
+        {/* <ProblemSolution /> */}
 
         <section className="about-section" id="about">
       <div className="about-container">

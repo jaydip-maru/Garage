@@ -4,12 +4,13 @@ import { ToastContainer, toast } from "react-toastify";
 import { useNavigate,Link } from "react-router-dom";
 import './SignUp.css'
 import Navbar from "../../Navbar";
-import { useAuth } from "../../Providers/AuthContext";
+import imgSignup from "/signup.webp"
+
 
 
 export default function SignUp() {
   const navigate = useNavigate();
-    const { login } = useAuth();
+
   
   let [fromData, setFormData] = useState({
     email: "",
@@ -46,23 +47,26 @@ export default function SignUp() {
       withCredentials: true
     }
   );
-    setFormData({
-      email: "",
-      username: "",
-      password: "",
-    });
+   
     const { success, message } = data;
    
     if (success) {
-      login({ email: data.user.email,username: data.user.username,id: data.user.id,isMec: data.user.isMec });
-
+      // login({ email: data.user.email,username: data.user.username,id: data.user.id,isMec: data.user.isMec });
+      
       handleSuccess(message);
       setTimeout(() => {
-        navigate("/");
+        localStorage.setItem("email", fromData.email);
+        navigate("/Otpverify");
       }, 1000);
+      setFormData({
+        email: "",
+        username: "",
+        password: "",
+      });
     } else {
       handleError(message);
     }
+
   };
   return (
     <>
@@ -72,7 +76,7 @@ export default function SignUp() {
      
       <div className="img-signup">
         <div className="overlay-sign"></div>
-        <img className="img-sign" src="https://thumbs.dreamstime.com/b/car-fixing-garage-27814540.jpg" alt="" />
+        <img className="img-sign" src={imgSignup} alt="" />
       </div>
         <div className="form"> 
           <form action="form-list" onSubmit={hendleSubmit}>
