@@ -50,21 +50,21 @@ function UserAppReq() {
     });
     
 
-    // useEffect(() => {
+    useEffect(() => {
         
       
-    //     if (!user) {
-    //       setTimeout(() => {
-    //         toast.error("Require a login for Service booking", {
-    //           position: "top-right",
-    //           autoClose: 5000,
-    //         });
-    //       },10);
-    //       navigate("/login");
+        if (!user) {
+          setTimeout(() => {
+            toast.error("Require a login for Service booking", {
+              position: "top-right",
+              autoClose: 5000,
+            });
+          },10);
+          navigate("/login");
         
-    //   }
+      }
     
-    //   }, [user]);
+      }, [user]);
 
 
   let handleInputChange = (event) => {
