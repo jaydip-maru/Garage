@@ -1,4 +1,6 @@
 const User = require("../Models/User/User");
+const PandingUser = require("../Models/User/PandingUser");
+
 const bcrypt = require("bcryptjs");
 const { createSecretToken } = require("../utils/secretToken");
 const nodemailer = require("nodemailer");
@@ -20,29 +22,42 @@ exports.signup = async (req, res) => {
   console.log(password);
 
     const existUser1 = await User.findOne({ email });
+
   
-    if (existUser1) {
+    if (existUser1 && existUser1.isVerified) {
       return res.json({ message: "user is exist" });
     }
     const otp = otpGenerator.generate(6, {
+      upperCaseAlphabets: false,
+      lowerCaseAlphabets: false,
+      specialChars: false,
       digits: true,
-      alphabets: false,
-      upperCase: false,
-      specialChars: false
     });
  
     console.log(password);
-    const user = await User.create(
+    const existUser = await PandingUser.findOne({ email });
+    
+if(existUser){
+   await PandingUser.updateOne(
+    { email,password, username,otp, otpExpires: Date.now() + 5 * 60 * 1000 });
+    await transporter.sendMail({
+      to: email,
+      subject: "Your OTP for Verification",
+      html: `<h2>Your OTP is: ${otp}</h2>`
+    });
+
+}else{
+    await PandingUser.create(
       { email,password, username,otp, otpExpires: Date.now() + 5 * 60 * 1000 });
       await transporter.sendMail({
         to: email,
         subject: "Your OTP for Verification",
         html: `<h2>Your OTP is: ${otp}</h2>`
       });
-
+    }
     res
       .status(200)
-      .json({ message: "OTP sent to email", success: true, user });
+      .json({ message: "OTP sent to email", success: true });
 };
 
 
@@ -70,9 +85,7 @@ exports.login = async (req, res) => {
      return res.json({ message: "Incorect credintioal" });
    }
 
-   if(!user.isVerified){
-     return res.json({ message: "User is not verifyed" });
-   }
+ 
  
    const token = createSecretToken({id: user._id,isMechanic: user.isMechanic});
    

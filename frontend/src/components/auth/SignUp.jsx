@@ -40,7 +40,6 @@ export default function SignUp() {
 
   const hendleSubmit = async (event) => {
     event.preventDefault();
-    console.log(fromData);
     const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, {
       ...fromData,
     },{
@@ -72,15 +71,15 @@ export default function SignUp() {
     <>
     <Navbar color="#feb993" />
 <div className="main">
-    <div className="Hero">
+    <div className="Hero-signup">
      
       <div className="img-signup">
-        <div className="overlay-sign"></div>
+        <div className="overlay-signup"></div>
         <img className="img-sign" src={imgSignup} alt="" />
       </div>
-        <div className="form"> 
+        <div className="form-signup"> 
           <form action="form-list" onSubmit={hendleSubmit}>
-          <h2 className="hadding">DASHEV GARAGE</h2>
+          <h2 className="hadding-signup">DASHEV GARAGE</h2>
 
           <label className="form-lable" htmlFor="email">email</label>
           <input className="form-input"
@@ -114,7 +113,7 @@ export default function SignUp() {
           />
 
           <button className="button-sign mt-5">Create account</button>
-        <p className="para-log">if you have account <Link to="/login">Login here!</Link> </p>
+        <p className="para-signup">if you have account <Link to="/login">Login here!</Link> </p>
 
         </form>
       </div>

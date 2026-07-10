@@ -121,39 +121,31 @@ body {
     );
   }
   
-  @media (max-width: 900px) {
+  @media (max-width: 800px) {
    
     .hero-login {
       flex-direction: column;
-      box-shadow: 0 ;
       height: auto;
-      margin: 0px 0px;
-
     }
+  
     .img-log {
-     display: none;
+      display: none;
     }
+  
+    
     .form-log {
+      flex: 1;
       padding: 20px 20px;
-      height: auto;
-
-      display: flex;
-    flex-direction: column;
-    justify-content: start;
+      height: 90vh;
+      justify-content: start;
     }
-    .hero-login {
-      height: 92vh;
-      margin: 0px 0;
-      border-radius: 0px;
-      box-shadow: 0 ;
-    }
-   
     .main {
       padding: 0px;
     }
-    .Hero {
-      height: 82vh;
+    .hero-login {
+    
+      height: 92vh;
+      
       box-shadow: 0;
-   
-  }
+    }
   }

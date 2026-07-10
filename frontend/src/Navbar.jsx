@@ -13,6 +13,11 @@ function Navbar({ color }) {
         style={{ backgroundColor: `${color}` }}
       >
         <div className="container-fluid">
+          <div  className="navbar-toggler navbar-brand"> 
+             
+                DASEV GARAGE{" "}
+
+            </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -50,7 +55,7 @@ function Navbar({ color }) {
               </li>
             </ul>
             <div className="">
-              <Link className="navbar-brand p-2 fs-5" to="/">
+              <Link className="navbar-brand-logo " to="/">
                 DASEV GARAGE{" "}
               </Link>
             </div>

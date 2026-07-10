@@ -1,4 +1,7 @@
 const User = require("../Models/User/User");
+const PandingUser = require("../Models/User/PandingUser");
+
+
 const { createSecretToken } = require("../utils/secretToken");
 const otpGenerator = require("otp-generator");
 require("dotenv").config();
@@ -7,31 +10,38 @@ require("dotenv").config();
 exports.verifyOtp = async(req, res) =>{
   const { email, otp } = req.body;
 
-  const user = await User.findOne({ email });
+  const pendingUser = await PandingUser.findOne({ email });
 
-  if (!user){ return res
+  if (!pendingUser){ return res
   .status(200)
   .json({ message: "User Not Found", success: false });
   }
 
-  if (user.otp != otp) {
+  if (pendingUser.otp != otp) {
     return  res
     .status(200)
     .json({ message: "Invalid Otp", success: false });
   }
 
-  if (user.otpExpires < Date.now()) {
+  if (pendingUser.otpExpires < Date.now()) {
     return  res
     .status(200)
     .json({ message: "Otp expride", success: false });
   }
   
+  const user1 = await User.create({
+    username: pendingUser.username,
+    email: pendingUser.email,
+    password: pendingUser.password,
+});
+await pendingUser.deleteOne({
+  _id: pendingUser._id
+});
+       
 
-  user.isVerified = true;
-  user.otp = null;
-  user.otpExpires = null;
+ 
 
-  const token = createSecretToken({id: user._id,isMechanic: user.isMechanic});
+  const token = createSecretToken({id: user1._id,isMechanic: user1.isMechanic});
 
   res.cookie("token", token, {
     httpOnly: true,
@@ -41,11 +51,11 @@ exports.verifyOtp = async(req, res) =>{
     withCredentials: true,
   });
 
-  await user.save();
+
 
   res
   .status(200)
-  .json({ message: "Email verify successfuly", success: true });
+  .json({ message: "Email verify successfuly", success: true, user1 });
 }
 
 
@@ -60,10 +70,10 @@ exports.resendOtp = async(req, res) =>{
   .json({ message: "User Not Found", success: true });
   }
   const otp = otpGenerator.generate(6, {
+    upperCaseAlphabets: false,
+    lowerCaseAlphabets: false,
+    specialChars: false,
     digits: true,
-    alphabets: false,
-    upperCase: false,
-    specialChars: false
   });
 
   user.otp = otp;

@@ -19,7 +19,19 @@
 .navbar-brand{
   font-weight:600;
   letter-spacing:1px;
-  font-size:30px;
+  font-size:20px;
+  
+
+}
+.navbar-brand-logo{
+  font-weight:600;
+  letter-spacing:1px;
+  font-size : 20px;
+  text-decoration: none;
+  color: #000;
+  text-align:center;
+  text-align:center;
+
 }
 
 .nav-link{
@@ -66,8 +78,9 @@
   gap:10px;
 }
 
-.navbar-brand{
-  text-align:center;
+
+.navbar-brand-logo{
+  display: none;
 }
 
 }
