@@ -68,30 +68,43 @@ A full-stack **MERN** application that helps users quickly connect with nearby g
 
 ---
 
-## 📂 Project Structure
+## ==>> Project Structure
 
 ```text
-garage-service-booking/
+Garage-Service-Booking-System/
 │
-├── Frontend/
+├── frontend/                     # React frontend
 │   ├── public/
 │   ├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
+│   │   ├── assets/               # Images & static assets
+│   │   ├── components/           # Reusable UI components
+│   │   ├── context/              # React Context API
+│   │   ├── pages/                # Application pages
+│   │   ├── services/             # API service functions
+│   │   ├── utils/                # Helper functions
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── package.json
+│   └── vite.config.js
 │
-├── Backend/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── sockets/
-│   ├── config/
-│   └── utils/
+├── backend/                      # Express backend
+│   ├── config/                   # Database & Cloudinary configuration
+│   ├── controllers/              # Business logic
+│   ├── middleware/               # Authentication & validation
+│   ├── models/                   # MongoDB schemas
+│   ├── routes/                   # REST API routes
+│   ├── sockets/                  # Socket.IO events
+│   ├── uploads/                  # Temporary uploads
+│   ├── utils/                    # Utility functions
+│   ├── app.js
+│   ├── server.js
+│   └── package.json
 │
-├── package.json
-└── README.md
+├── .gitignore
+├── README.md
+└── package-lock.json
 ```
+
 
 
 =>> Environment Variables
