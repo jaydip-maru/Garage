@@ -24,16 +24,6 @@ exports.createGarage = async (req, res) => {
     return res.json({ message: "Image added successfully",success: true });
 };
 
-exports.deleteGarage = async (req, res) => {
-   const { id } = req.params;
-  
-    const deletedGarage = await Garage.findByIdAndDelete({ _id: id });
-    const user = await User.findById(deletedGarage.owener);
-    await user.updateOne({isMechanic: false});
-    
-    return res.json({message: "listing was deleted"});
-};
-
 exports.getGarageById = async (req, res) => {
   const { id } = req.params;
  
@@ -42,4 +32,13 @@ exports.getGarageById = async (req, res) => {
    await user.updateOne({isMechanic: false});
    
    return res.json({message: "listing was deleted"});
+};
+exports.deleteGarage = async (req, res) => {
+   const { id } = req.params;
+  
+    const deletedGarage = await Garage.findByIdAndDelete({ _id: id });
+    const user = await User.findById(deletedGarage.owener);
+    await user.updateOne({isMechanic: false});
+    
+    return res.json({message: "listing was deleted"});
 };

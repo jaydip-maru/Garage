@@ -20,12 +20,12 @@ function Home() {
 
 
   useEffect(() => {
-    setloding(true)
     axios
-      .get(import.meta.env.VITE_API_URL)
+      .get(`${import.meta.env.VITE_API_URL}/home`)
       .then((res) => {
+        console.log(res.data);
         SetGarages(res.data);
-        setloding(false);
+
       })
       .catch((err) => {
         console.log(err);

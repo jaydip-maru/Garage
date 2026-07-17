@@ -18,7 +18,7 @@ function Show() {
     }) }, []);
 
     let handleDelete = async () => {
-        const { data } = await axios.delete(`http://localhost:8080/garage/${id}`)
+        const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/garage/delete/${id}`)
         const {message} = data;
         
             toast.success(message);
@@ -26,6 +26,7 @@ function Show() {
             setTimeout(() => {
                 navigate("/home");
               }, 1000);
+            
     }
 
 

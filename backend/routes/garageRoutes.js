@@ -9,6 +9,6 @@ const upload = multer({ storage: multer.memoryStorage() });
 router.get("/", controller.getAllGarage);
 router.post("/", upload.single("url"), controller.createGarage);
 router.get("/:id", controller.getGarageById);
-router.delete("/:id", controller.deleteGarage);
+router.delete("/delete/:id", controller.deleteGarage);
 
 module.exports = router;

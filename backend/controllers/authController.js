@@ -8,9 +8,7 @@ const otpGenerator = require("otp-generator");
 require("dotenv").config();
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
+  service: "gmail",
   auth: {
     user: "garageapp9@gmail.com",
     pass: "bdktzbejtrqccibz"
