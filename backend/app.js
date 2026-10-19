@@ -17,6 +17,7 @@ const garageRoute = require("./routes/garageRoutes");
 const serviceRoute = require("./routes/serviceRoutes");
 const otpRoute = require("./routes/OtpRoutes");
 const addminRoute = require("./routes/addminRoutes");
+const { userVerification } = require('./middleware/AuthMiddleware');
 
 
 
@@ -34,24 +35,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(methodOverride("_method"));
 app.use(cookieParser());
-
 app.use(cors({
   origin: process.env.VITE_FRONTEND_URL,
   credentials: true
 }));
 
 
+
 app.use("/auth",authRoute);
 app.use("/otp",otpRoute);
+app.use("/garage",userVerification ,garageRoute);
+app.use("/",serviceRoute);
 app.use("/home",addminRoute);
 
 
-app.use("/garage",garageRoute);
-app.use("/",serviceRoute);
-
-
 app.use((err, req, res, next) => {
-  let { statusCode = 404, message = "error Occured" } = err;
+  let { statusCode = 500, message = "error Occured" } = err;
   console.log(err);
   console.log(err.message);
   return res.json({ message: { err } });

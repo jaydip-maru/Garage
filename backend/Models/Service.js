@@ -12,8 +12,14 @@ const serviceSchema = new mongoose.Schema({
   ref: "User"
   },
   
-  problem: String,
-  location: String,
+  problem: {
+    type: String,
+    required: [true, "Your problem is required"]
+  },
+  location: {
+    type: String,
+    required: [true, "Your location is required"]
+  },
   status: {
     type: String,
     default: "pending"

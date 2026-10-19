@@ -4,14 +4,34 @@ const User = require("./User/User")
 
 
 const GarageSchema = new Schema({
-    name: "String",
-    url: "String",
-    city: "String", 
-    dis: "String",
-    country: "String",
-    type: "String",
-    price: "Number",
-    location: "String",
+    name: {
+      type: String,
+      required: [true, "Your name is required"]
+    },
+    url: {
+      type: String,
+      required: [true, "Your image is required"]
+    },
+    city: {
+      type: String,
+      required: [true, "Your city is required"]
+    },
+    dis: {
+      type: String,
+      required: [true, "Your distric is required"]
+    },
+    country: {
+      type: String,
+      required: [true, "Your country is required"]
+    },
+    price: {
+      type: Number,
+      required: [true, "Your price is required"]
+    },
+    location: {
+      type: String,
+      required: [true, "Your location is required"]
+    },
     owener: {
         type: Schema.Types.ObjectId,
         ref: "User"

@@ -8,7 +8,7 @@ function MyProfile() {
   const [open, setOpen] = useState(false);
   const [services, setServices] = useState([]);
 
-  const { user } = useAuth();
+  const { user,logout } = useAuth();
   const menuRef = useRef(null);
 
   const fetchServices = useCallback(async () => {
